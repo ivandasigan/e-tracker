@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Tracker | Applicants</title>
+    <link rel="stylesheet" href="css/applicant.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/add.js" defer></script>
+
+</head>
+<body>
+
+    <!----------------------HOME----------------------------->       
+    <div class="wrapper">
+        <!----------------------NAVIGATION----------------------------->       
+        <div class="navigation">
+        <!-- LEFT - NAV - LINKS -->
+        
+        <!-- SIDE NAV END -->
+        </div>
+    
+        <!----------------------TOP MENU----------------------------->       
+        <div class="add-home home">
+        <div class="row indent upper-nav">
+        <div class="col-1">
+
+        <!----------------------DISPLAY SEMESTER----------------------------->       
+        <span class="school-year header-title" id="school_year">1st Semester | 2019-2020 </span>
+        </div>
+         <!-- LOGO DISPLAY  -->
+         <div class="col-2">
+        <center><img src="img/main.png" alt="" width="45" class="logo" style="transform: translateY(-16px);" ></center>
+        </div>
+
+        <!----------------------TOTAL NOTIFICATION NUMBER----------------------------->  
+        <div class="col-3">
+        <div class="notif">
+        <div class="badge" id="notif_bell"><span class="total-notif" id="notif_count"></span></div>
+        <a href="applicant.html"><i class="fa fa-bell" aria-hidden="true"></i></a>    
+        </div>
+
+        <div class="user-cred ">
+
+        <!----------------------DISPLAY PHOTO----------------------------->
+        <img src="img/default_user_image.png" id="profileImage" alt="" width="40" height="40" class="user-photo">
+
+        <!----------------------USER NAME TOP----------------------------->   
+        <span class="user-name" id="user_name"></span>
+
+        <!----------------------PROFILE DROPDOWN----------------------------->
+        <div class="dropdown">
+        <i class="fa fa-sort-desc user-dropdown" aria-hidden="true"></i>
+        <div class="dropdown-content">
+        <a href="profile.html" >Profile</a><a href="#" onclick="logout_action()">Logout</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- END UPPER MENU -->
+
+        <!-- HEADER TITLE
+        <div class="add">
+        <div class="students">
+        <span class="applicant-label label indent"><a href="addStudent.html"><i class="fa fa-home" aria-hidden="true"></i></a> &nbspNew Applicants</span>
+        </div>
+        </div> -->
+        <br>
+        <span class="newApplicant"> &nbspNew Applicants</span>
+
+     <!----------------------TABLE----------------------------->
+    <div class="list">
+
+        <!-- HEADERS ONLY -->
+        &nbsp;&nbsp;&nbsp;
+        <span>All</span>
+        <span style="color: #ebebeb;">
+        &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+        <span id="result">Results : </span>
+        <span style="color: #ebebeb;">
+        &nbsp;&nbsp;&nbsp;|</span>
+        <a href="addStudent.html" class="viewStd" style="color: #006a26;">&nbsp;&nbsp;&nbsp;<class class="fa fa-user" aria-hidden="true">&nbsp;View Students</class></a>
+        
+        <table id="applicantsTable">
+        <tr class="header">
+        <th>Name</th>
+        <th>ID</th>
+        <th>Course</th>
+        <th>Year</th>
+        <th>Scholarship</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <!-- END -->
+        <th>Actions</th>
+        </tr>
+        <!-- <tr id="1">
+            <td class="row-data">John Cena</td>
+            <td class="row-data">1234</td>
+            <td class="row-data">CITE</td>
+            <td class="row-data">1</td>
+            <td class="row-data">HK</td>
+            <td class="row-data">091818193923</td>
+            <td class="row-data">abc@gmail.com</td>
+            <td> -->
+            <!----------------------BUTTON ACCEPT----------------------------->
+            <!-- <button class="accept" onclick="accept()"> accept</button></a> -->
+            <!----------------------BUTTON REJECT----------------------------->
+            <!-- <button class="reject" onclick="reject()">reject</button> -->
+        <!-- </td>
+       </tr>
+       <tr id="2">
+        <td class="row-data">John Risyu</td>
+        <td class="row-data">3311</td>
+        <td class="row-data">CMS</td>
+        <td class="row-data">4</td>
+        <td class="row-data">HK</td>
+        <td class="row-data">091818193923</td>
+        <td class="row-data">abc@gmail.com</td>
+        <td> -->
+        <!----------------------BUTTON ACCEPT----------------------------->
+        <!-- <button class="accept" onclick="accept()"> accept</button></a> -->
+        <!----------------------BUTTON REJECT----------------------------->
+        <!-- <button class="reject" onclick="reject()">reject</button> -->
+    <!-- </td>
+   </tr> -->
+       </table>
+    </div> 
+     <!-- END HOME -->
+    </div>
+     <!-- END WRAPPER -->  
+    </div>
+
+     <!-- JS BACKEND -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
+        <script>
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            var firebaseConfig = {
+                apiKey: "AIzaSyCznGmM6_l9vuddjONG8c-Z4du3-LXlQNw",
+                authDomain: "e-tracker-51b2a.firebaseapp.com",
+                projectId: "e-tracker-51b2a",
+                storageBucket: "e-tracker-51b2a.appspot.com",
+                messagingSenderId: "180907238573",
+                appId: "1:180907238573:web:c5745adb36aaea4299d224",
+                measurementId: "G-Z0YPB2DTZN"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            //firebase.analytics();
+
+            </script>
+            <script src="js/applicant_backend.js"></script>
+</body>
+</html>

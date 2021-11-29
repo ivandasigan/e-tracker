@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Tracker | Faculty</title>
+    <link rel="stylesheet" href="css/faculty.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/read-excel-file@4.1.0/bundle/read-excel-file.min.js"></script>
+    <script src="js/add.js" defer></script>
+    <script src="js/faculty.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".select").click(function(){
+                $(".choices").toggle("right")
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+
+        <!----------------------HOME----------------------------->       
+        <div class="wrapper">
+        <!----------------------NAVIGATION----------------------------->       
+        <div class="navigation">
+        <!-- LEFT - NAV - LINKS -->
+        <div class="side-nav">
+        <!-- PROJECT - NAME -->
+        <div class="title-name"><h1 class="project-name header-title">PHINMA Scholar <br>E-Tracker</h1><span class="position">superadmin</span></div>
+        <!-- UL LI -->
+        <div class="link">
+        <ul class="links">
+        <li>
+            <a href="dashboard.html" class="dashboard" ><i class="fa fa-bar-chart" aria-hidden="true"></i><span>Dashboard</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true" id="icon"></i>
+        </li>
+        <li >
+            <a href="addStudent.html" class="student dashboard" ><i class="fa fa-user" aria-hidden="true"></i><span>Student</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li class="active">
+            
+        <a href="faculty.html" class="faculty dashboard"><i class="fa fa-address-book" aria-hidden="true"></i><span>Faculty</span></a></i>
+            
+        <!-- INDICATOR -->
+        <div class="faculty-indicator" id="faculty_indicator">
+        <i class="fa fa-bell" style="color: #fafafa;"></i>
+        <span id="void_count">3</span>
+        </div>
+        <!-- INDICATOR -->
+
+            <i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li>
+            <a href="setSchedule.html" class="setting dashboard" ><i class="fa fa-clock-o" aria-hidden="true"></i><span>Set Schedule</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+
+        <li>
+            <a href="dtr.html" class="dtr dashboard" ><i class="fa fa-calendar-times-o" aria-hidden="true"></i><span>DTR</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li>
+            <a href="renew.html" class="renewal dashboard" ><i class="fa fa-check-square-o" aria-hidden="true"></i><span>Renewal</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li>
+            <a href="Announcement.php" class="announcement dashboard" ><i class="fa fa-envelope-open" aria-hidden="true"></i><span>Announcement</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li>
+            <a href="setting.html" class="announcement dashboard" ><i class="fa fa-cog" aria-hidden="true"></i><span>Settings</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        </div>
+        </ul>
+                
+        <!-- FOOTER LEFT -->
+        <div class="left-footer">
+            <img class="phinma" src="img/phinma.svg" alt="">
+        <div class="socials">
+            <a href="https://www.facebook.com/phinmaupang" ><img src="img/fb.svg" alt=""></a><a href="https://www.instagram.com/phinmaupangs" ><img src="img/ig.svg" alt=""></a><a href="http://www.up.phinma.edu.ph/"><img src="img/mail.svg" alt=""></a> 
+        </div>
+        <span>(075) 522 5635</span>
+        </div>
+        <!-- SIDE NAV END -->
+        </div>
+        <!-- NAV CONTAINER END -->
+        </div>
+    
+        <!----------------------TOP MENU----------------------------->       
+        <!-- UPPER MENU  -->
+        <div class="add-home home">
+      
+        <div class="row indent upper-nav"> 
+        <div class="col-1">
+        <!----------------------DISPLAY SEMESTER----------------------------->       
+        <span class="school-year header-title" id="school_year">1st Semester | 2019-2020 </span>
+        </div>
+        <!-- LOGO DISPLAY -->
+        <div class="col-2">
+        <center><img src="img/main.png" alt="" width="45" class="logo" style="transform: translateY(-16px);" ></center>
+        </div>
+
+         <!----------------------TOTAL NOTIFICATION NUMBER----------------------------->       
+        <div class="col-3">
+        <a href="userlogs.html" class="user-activity" style="transform: translateX(-15px);">
+        <i class="fa fa-cogs"></i>
+        </a> 
+        <div class="notif">
+        <div class="badge" id="notif_bell"><span class="total-notif"  id="notif_count"></span></div>
+        <a href="applicant.html" ><i class="fa fa-bell" aria-hidden="true"></i></a>
+        </div>
+           
+        <div class="user-cred ">
+        <!----------------------DISPLAY PHOTO----------------------------->
+        <img src="img/default_user_image.png" id="profileImage" alt="" width="40" height="40" class="user-photo">
+
+        <!----------------------USER NAME TOP----------------------------->   
+        <span class="user-name" id="user_name"></span>
+
+        <!----------------------PROFILE DROPDOWN----------------------------->
+        <div class="dropdown">
+        <i class="fa fa-sort-desc user-dropdown" aria-hidden="true"></i>
+        <div class="dropdown-content">
+        <a href="profile.html" >Profile</a><a href="#" onclick="logout_action()">Logout</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- END UPPER MENU -->
+
+        <!----------------------SEARCH----------------------------->
+        <div class="search ">
+        <input type="text" placeholder="Enter Faculty . . ." class="search-bar" id="search_faculty_field" oninput="searchFacultyOnInput()">
+        <button class="search-btn" onclick="searchAction()"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+
+        <!-- HEADER TITLE -->
+        <div class="add indent">
+        <div class="faculty">
+        <button class="add-btn">+</button>
+        <span class="add-label label">Add Faculty <span class="break"> | Teacher</span></span>
+        </div>
+
+        <!----------------------SORTING----------------------------->
+        <div class="filters indent">
+        <div class="import">
+        <!-- IMPORT BUTTON -->
+        <button class="import-btn">Import <i class="fa fa-upload"></i></button>
+        <!-- IMPORT FILE -->
+         <input type="file" class="import-file" hidden  onchange="loadFile(event)" > 
+        </div>
+       
+        </div>
+        </div>
+
+        <div class="header-details" style="width: 100%;height:45px;margin-top: 10px;color: rgba(0, 0,0,.5);position: relative;">
+        
+        <!-- SELECT BUTTON FOR DELETE ALL ROW -->
+        <button class="select"><i class="fa fa-ellipsis-h"></i></button>
+        <div class="choices">
+        <button onclick="deleteAllFacultyAction()">Delete All</button>
+        <!-- <button>Accept All</button>
+        <button>Reject All</button> -->
+        </div>
+
+        <label for="" style="margin-left: 30px;color: rgba(0, 0,0,.5);">Result : </label>
+        <span id="result">&nbsp; 0</span>
+
+       
+        <!--  EDIT DEPARTMENT -->      
+        <span  style="color: rgba(0, 0,0,.8);margin-left: 30px;">Filter By Department : </span> 
+        <select name="edit-department" id="department_table_option" onchange="departmentTableOnChange()">
+            <option value="REGISTRAR">REGISTRAR</option>
+            <option value="CSDL">CSDL</option>
+            <option value="FINANCE">FINANCE</option>
+            <option value="MARKETING">MARKETING</option>
+            <option value="ITS">ITS</option>
+            <option value="GSD">GSD</option>
+            <option value="BASIC ED">BASIC ED</option>
+            <option value="CITE">CITE</option>
+            <option value="CEA">CEA</option>
+            <option value="CSS">CSS</option>
+            <option value="CMA">CMA</option>
+            <option value="CAS">CAS</option>
+            <option value="COO">COO</option>
+            <option value="CHS">CHS</option>
+            </select>
+    
+        </div>
+        <!----------------------TABLE----------------------------->
+        <div class="list">
+        <table id="faculty_Table">
+        <tr class="header">
+       
+        <th>ID</th>
+        <th>Name</th>
+        <th style="width: 100px;">Department</th>
+        <th style="width: 260px;text-align: center;">Actions</th>
+        <th style="width: 200px;text-align: center;">Void Request</th>
+        </tr>
+
+        <!-- sample output -->
+        <!-- <tr id="1">     
+        <td class="row-data">1234</td>
+        <td class="row-data">Alucard De Vera</td>
+        <td class="row-data"> CITE</td>
+        <td>
+        <button class="view" onclick="view()">View</button>
+        <Button class="edit" onclick="show()">Edit</Button>
+        <button class="delete"><i class="fa fa-trash"></i></button>
+        </td>
+        <td class="row-data" style="position: relative;">
+        <center>
+        <button class="void-indicator one">Accept</button>
+        <button class="void-indicator two">Reject</button>
+        </center>
+        </td>
+        </tr>  -->
+
+        <!-- sample output -->
+        <!-- <tr id="1">     
+        <td class="row-data">1234</td>
+        <td class="row-data">Alucard De Vera</td>
+        <td class="row-data"> CITE</td>
+        <td>
+        <button class="view" onclick="view()">View</button>
+        <Button class="edit" onclick="show()">Edit</Button>
+        <button class="delete"><i class="fa fa-trash"></i></button>
+        </td>
+        <td class="row-data" style="position: relative;">
+        <center>
+        N/A
+        </center>
+        </td>
+        </tr>  -->
+      
+        </table>
+        </div> 
+        <!-- END HOME -->
+        </div>
+        <!-- END WRAPPER -->  
+        </div>
+
+        <!-- <a href="view-faculty.html" target="_BLANK"> -->
+
+        <!----------------------ADD FACULTY----------------------------->
+        <!-- MODAL TO ADD FACULTY -->
+        <div class="modal-add" id="modal_add">
+        <div class="add-faculty-inputs">
+        <!-- CLOSE MODAL -->
+        <button class="close-btn"><i class="fa fa-close"></i></button>
+        <h1>Add Faculty</h1>
+
+        <div class="error-message rounded mb-3">
+        <p class="error">Please fill the form correctly.</p>
+        </div>
+
+        <div class="col-2-input input">
+        <div class="add-new-inputid">
+        <label class="id-label" for="id">Faculty ID</label>
+        <!-- FACULTY ID INPUT -->
+        <input class="id-input id" type="text" placeholder="Faculty ID" id="modal_add_id" oninput="faculty_ID_oninput()" style="width:100%;border-radius: 5px;border: 1px solid rgba(0, 0, 0, .2);">
+        </div>
+        </div>
+
+        <div class="col-1-input input">
+        <div class="add-new-input">
+        <!-- FIRST NAME INPUT -->
+        <label class="last-name-label" for="last">Last Name</label>
+        <input class="last-name-input lname" type="text" placeholder="Last name" id="modal_add_lastname" style="width:100%;border-radius: 5px;border: 1px solid rgba(0, 0, 0, .2);">
+        </div>
+
+        <div class="add-new-input">
+        <label class="first-name-label" for="first">First Name</label>
+        <!-- LAST NAME INPUT -->
+        <input class="first-name-input fname" type="text" placeholder="First name" id="modal_add_firstname"style="width:100%;border-radius: 5px;border: 1px solid rgba(0, 0, 0, .2);">
+        </div>
+
+        <div class="add-new-input">
+        <label class="mi-label" for="mi">Middle Name</label>
+        <!-- MIDDLE NAME INPUT -->
+        <input class="mi-input mname" type="text" placeholder="Middle name" id="modal_add_middlename"style="width:100%;border-radius: 5px;border: 1px solid rgba(0, 0, 0, .2);">
+        </div>
+        </div>
+
+        <div class="col-1-input input">
+        <div class="add-new-input">
+        <!-- SUBJECT CODE INPUT -->
+        <label class="subject-code-label" for="s-code">Subject code</label>
+        <input class="subject-code-input scode" type="text" placeholder="Subject code" id="modal_add_subjectcode" style="width: 129px;border-radius: 5px;border: 1px solid rgba(0, 0, 0, .2);">
+        </div>
+        </div>
+
+        <div class="col-3-input input ">
+        </div>
+        <button class="add-save changes" onclick="saveFacultyAction()"  style="background-color: rgba(0, 0, 0, .1);">Save Data</button>
+        
+        </div>
+        </div>
+        <!-- END MODAL TO ADD FACULTY -->
+
+        <!----------------------EDIT STUDENTS----------------------------->
+        <!--  MODAL TO EDIT FACULTY -->
+        <div class="modal-edit" id="modal_edit">
+        <div class="edit-faculty-inputs">
+        <button class="close-btn"><i class="fa fa-close"></i></button>
+        <h1>Edit Faculty</h1>
+
+        <div class="error-message em-2 rounded mb-3">
+        <p class="error er-2">Please fill the form correctly.</p>
+        </div>
+
+        <div class="edit-old-inputid">
+        <label class="id" for="id">ID</label>
+        <!--  EDIT FACULTY ID -->        
+        <input class="edit-id-input one" type="text" placeholder="Faculty ID" id="modal_edit_facultyid" style="width:95%;padding: 5px 10px ;border-radius: 5px;border: 1px solid rgba(0, 0, 0, .2);pointer-events: none;">
+        </div>
+
+        <div class="col-1-input input">
+        <div class="edit-old-input">
+        <label class="edit-first-name" for="Last">Last Name</label>
+        <!--  EDIT FIRST NAME -->
+        <input class="Last-name-input one" type="text" placeholder="Last name" id="modal_edit_lastname" style="pointer-events: none;border-radius: 5px;border: 1px solid rgba(0, 0, 0, .2)">
+        </div>
+            
+        <div class="edit-old-input">
+        <label class="edit-last-name" for="first">First Name</label>
+        <!--  EDIT LAST NAME -->
+        <input class="edit-first-name-input one" type="text" placeholder="First name" id="modal_edit_firstname" style="pointer-events: none;border-radius: 5px;border: 1px solid rgba(0, 0, 0, .2)"> 
+        </div>
+
+        <div class="edit-old-input">
+        <label class="mi" for="mi">Middle Name</label>
+        <!--  EDIT MIDDLE NAME -->
+        <input class="edit-mi-input one" type="text" placeholder="Middle name" id="modal_edit_middlename" style="pointer-events: none;border-radius: 5px;border: 1px solid rgba(0, 0, 0, .2)">
+        </div>
+        </div>
+
+        <div class="col-1-input input">
+        <div class="edit-old-input">
+        <!-- SUBJECT CODE INPUT -->
+        <label class="subject-code-label" for="s-code" >Subject code</label>
+        <input class="subject-code-input" type="text" placeholder="Subject code" id="subject_code" style="width: 129px;border-radius: 5px;border: 1px solid rgba(0, 0, 0, .2)">
+        </div>
+        </div>
+        
+        <!--  SAVE BUTTON -->       
+        <button class="edit-save changes" onclick="saveChangesAction()" disabled style="background-color: rgba(0, 0, 0, .1);">Save Changes</button>
+        </div>
+        </div>
+
+        <!-- JS BACKEND -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
+        <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyCznGmM6_l9vuddjONG8c-Z4du3-LXlQNw",
+            authDomain: "e-tracker-51b2a.firebaseapp.com",
+            projectId: "e-tracker-51b2a",
+            storageBucket: "e-tracker-51b2a.appspot.com",
+            messagingSenderId: "180907238573",
+            appId: "1:180907238573:web:c5745adb36aaea4299d224",
+            measurementId: "G-Z0YPB2DTZN"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        //firebase.analytics();
+        function saveFacultyAction() {
+            alert("dsadas");
+        }
+        </script>
+        <script src="js/faculty_backend.js"></script>
+
+</body>
+</html>

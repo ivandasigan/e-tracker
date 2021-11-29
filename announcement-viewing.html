@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Tracker | Announcement Viewing</title>
+    <link rel="stylesheet" href="css/announcement-viewing.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+        <!----------------------HOME----------------------------->       
+        <div class="wrapper">
+        <!----------------------NAVIGATION----------------------------->       
+        <div class="navigation">
+       
+        <!-- NAV CONTAINER END -->
+        </div>
+
+        <!----------------------TOP MENU----------------------------->       
+        <div class="add-home home">
+
+        <div class="row indent upper-nav"> 
+        <div class="col-1">
+        <!----------------------DISPLAY SEMESTER----------------------------->       
+        <span class="school-year header-title" id="school_year">1st Semester | 2019-2020 </span>
+        </div>
+         <!-- LOGO DISPLAY  -->
+         <div class="col-2">
+        <center><img src="img/main.png" alt="" width="45" class="logo" style="transform: translateY(-16px);" ></center>
+        </div>
+
+         <!----------------------TOTAL NOTIFICATION NUMBER----------------------------->       
+         <!-- NOTIFICATION DISPLAY  -->
+        <div class="col-3">
+        <div class="notif">
+
+        <div class="badge" id="notif_bell"><span class="total-notif" id="notif_count">3</span></div>
+        <a href="applicant.html"><i class="fa fa-bell" aria-hidden="true"></i></a>
+        </div>
+           
+        <div class="user-cred ">
+        <!----------------------DISPLAY PHOTO----------------------------->
+        <img src="img/default_user_image.png" id="profileImage" alt="" width="40" height="40" class="user-photo">
+
+        <!----------------------USER NAME TOP----------------------------->   
+        <span class="user-name" id="user_name">Katherine</span>
+        <!----------------------PROFILE DROPDOWN-------------------------->
+        <div class="dropdown">
+        <i class="fa fa-sort-desc user-dropdown" aria-hidden="true"></i>
+        <div class="dropdown-content">
+        <a href="profile.html" >Profile</a><a href="#" onclick="logout_action()">Logout</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+   
+        <!-- HEADER TITLE -->
+        
+
+        <div class="header">
+            <div class="title"> <a href="announcement.html"><i class="fa fa-arrow-left"></i>  &nbsp</a> <strong>Messages</strong></div>
+        </div>
+            
+        
+        <!----------------------USER LOGS----------------------------->
+        <div class="list">
+        <!-- ACTIVITIES -->
+        <div class="announce ">
+        <span> <strong> To: </strong> &nbsp;&nbsp;&nbsp;<span class="receipient" id="recipient">Scholars</span></span>
+        <br>
+        <span> <strong>From: </strong> &nbsp;&nbsp;&nbsp;<span class="sender" id="sender">CSDL</span></span>
+        <div class="text">
+            <span class="date" id="date_announce">07-30-2021</span>
+            <p class="message" id="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi amet, autem quae ratione sint rem voluptatem architecto sapiente obcaecati nam labore dicta ut assumenda sed qui ipsum, voluptate soluta! Id nesciunt aliquam, eius similique earum suscipit deserunt molestias iste corporis necessitatibus in odit quasi dicta possimus odio temporibus quidem blanditiis tempora voluptatem dolores rem fugiat, sint totam ex. Iste officia animi dignissimos inventore facere hic ratione non atque in, omnis tempora possimus deleniti consectetur maiores vel excepturi mollitia voluptas quis voluptate quam minus amet. Veniam dicta incidunt rem veritatis blanditiis magni deleniti inventore, consequuntur perspiciatis quaerat enim fugit sunt dolore.</p>
+        </div>
+        </div> 
+
+        <!-- END HOME -->
+        </div>
+        </div>
+        <!-- END WRAPPER -->  
+        </div>
+     <!-- JS BACKEND -->
+     <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
+     <script>
+         // Your web app's Firebase configuration
+         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+         var firebaseConfig = {
+             apiKey: "AIzaSyCznGmM6_l9vuddjONG8c-Z4du3-LXlQNw",
+             authDomain: "e-tracker-51b2a.firebaseapp.com",
+             projectId: "e-tracker-51b2a",
+             storageBucket: "e-tracker-51b2a.appspot.com",
+             messagingSenderId: "180907238573",
+             appId: "1:180907238573:web:c5745adb36aaea4299d224",
+             measurementId: "G-Z0YPB2DTZN"
+         };
+         // Initialize Firebase
+         firebase.initializeApp(firebaseConfig);
+         //firebase.analytics();
+         var date_announce = document.getElementById("date_announce");
+         var message = document.getElementById("message");
+         var sender = document.getElementById("sender");
+         var recipient = document.getElementById("recipient");
+
+         displayAnnouncment();
+         function displayAnnouncment() {
+            date_announce.innerHTML = localStorage.getItem("date");
+            message.innerHTML = localStorage.getItem("message");
+            
+            recipient.innerHTML = localStorage.getItem("recipient") + " Scholars";
+         }
+
+         </script>
+        <script src="js/announce_view_backend.js"></script> 
+</body>
+</html>

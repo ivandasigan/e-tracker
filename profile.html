@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Tracker | Profile</title>
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/profile.js" defer></script>
+
+</head>
+    <style>
+        .faculty-indicator 
+        {
+        display: flex;
+        height: 30px;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0,0,.5);
+        color: #fafafa;
+        margin-top: 10px;
+        transition: .5s ease;
+        padding: 0 5px;
+        position: relative;
+        }
+        .faculty-indicator .fa 
+        {
+        margin-right: 5px;
+        }
+        .faculty-indicator .fa::after
+        {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 30px;
+        background-color:#cfd2cd;
+        top: 0;
+        left: 27px;
+                    
+        }
+        .faculty-indicator span 
+        {
+        font-size: .8rem;
+        padding: 0 8px;
+        }
+        .faculty-indicator:hover
+        {
+        background-color: #212529;
+        }
+    </style>
+<body>
+
+        <!----------------------HOME----------------------------->     
+        <div class="wrapper">
+        <!----------------------TOP MENU----------------------------->       
+        <div class="navigation">
+        <!-- LEFT - NAV - LINKS -->
+        <div class="side-nav">
+        <!-- PROJECT - NAME -->
+        <div class="title-name "><h1 class="project-name header-title">PHINMA Scholar <br>E-Tracker</h1><span class="position">superadmin</span></div>
+        <!-- UL LI -->
+        <div class="link">
+        <ul class="links">
+        <li>
+            <a href="dashboard.html" class="dashboard"><i class="fa fa-bar-chart" aria-hidden="true"></i><span>Dashboard</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true" id="icon" ></i>
+        </li>
+        <li>
+            <a href="addStudent.html" class="student dashboard" ><i class="fa fa-user" aria-hidden="true"></i><span>Student</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true" ></i>
+        </li>
+        <li>
+            <a href="faculty.html" class="faculty dashboard"><i class="fa fa-address-book" aria-hidden="true"></i><span>Faculty</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true" ></i>
+           
+            <!-- INDICATOR -->
+            <div class="faculty-indicator" id="faculty_indicator">
+            <i class="fa fa-bell" style="color: #fafafa;"></i>
+            <span id="void_count">3</span>
+            </div>
+            <!-- INDICATOR -->
+
+        </li>
+        <li>
+            <a href="setSchedule.html" class="setting dashboard"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Set Schedule</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li>
+            <a href="dtr.html" class="dtr dashboard"><i class="fa fa-calendar-times-o" aria-hidden="true"></i><span>DTR</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true" ></i>
+        </li>
+        <li>
+            <a href="renew.html" class="renewal dashboard" ><i class="fa fa-check-square-o" aria-hidden="true"></i><span>Renewal</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true" ></i>
+        </li>
+        <li>
+            <a href="announcement.html" class="announcement dashboard" ><i class="fa fa-envelope-open" aria-hidden="true"></i><span>Announcement</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true" ></i>
+        </li>
+        <li>
+            <a href="setting.html" class="announcement dashboard" ><i class="fa fa-cog" aria-hidden="true"></i><span>Settings</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        </div>
+        </ul>
+                
+        <!-- FOOTER LEFT -->
+        <div class="left-footer">
+            <img class="phinma" src="img/phinma.svg" alt="">
+        <div class="socials">
+            <a href="https://www.facebook.com/phinmaupang"><img src="img/fb.svg" alt=""></a><a href="https://www.instagram.com/phinmaupangs" ><img src="img/ig.svg" alt=""></a><a href="http://www.up.phinma.edu.ph/" ><img src="img/mail.svg" alt=""></a> 
+        </div>
+        <span>(075) 522 5635</span>
+        </div>
+        <!-- SIDE NAV END -->
+        </div>
+        <!-- NAV CONTAINER END -->
+        </div>
+
+        <div class="add-home home">
+        <div class="row indent upper-nav">
+        <div class="col-1">
+            
+        <!----------------------DISPLAY SEMESTER----------------------------->       
+        <span class="school-year header-title">1st Semester | 2019-2020 </span>
+        </div>
+         <!-- LOGO DISPLAY  -->
+         <div class="col-2">
+        <center><img src="img/main.png" alt="" width="45" class="logo" style="transform: translateY(-16px);" ></center>
+        </div>
+
+        <!----------------------TOTAL NOTIFICATION NUMBER----------------------------->
+        <div class="col-3">
+        <a href="userlogs.html" class="user-activity" style="transform: translateX(-15px);">
+        <i class="fa fa-cogs"></i>
+        </a> 
+        
+        <div class="notif">
+        <div class="badge" id="notifBell"><span class="total-notif" id="notif_count"></span></div>
+        <a href="applicant.html" ><i class="fa fa-bell" aria-hidden="true"></i></a>
+        </div>
+              
+        <div class="user-cred ">
+        <!----------------------DISPLAY PHOTO-----------------------------> 
+        <img src="img/default_user_image.png" id="profileImage" alt="" width="40" height="40" class="user-photo">
+
+        <!----------------------USER NAME TOP----------------------------->   
+        <span class="user-name" id="user_name"></span>
+
+        <!----------------------PROFILE DROPDOWN----------------------------->
+        <div class="dropdown">
+        <i class="fa fa-sort-desc user-dropdown" aria-hidden="true"></i>
+        <div class="dropdown-content">
+        <a href="profile.html">Profile</a><a href="#" onclick="logout_action()">Logout</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+        <div class="profile-container">
+
+        <h1 class="profile-header ">&nbsp&nbsp&nbspUser Profile</h1>
+        <div class="margins">
+        <div class="info-section">
+        <br>
+        <div class="profile-img">
+        <!---------------------- SUPERADMIN PROFILE PHOTO----------------------------->
+        <img src="img/default_user_image.png" id="profileImage1" alt="" width="100" height="100">
+        <!---------------------- CHOOSE BUTTON FILE ----------------------------->
+        <button class="choose">&times</button>
+        <!---------------------- OPENING FILE ----------------------------->
+        <input type="file" class="change" id="file"  onchange="loadFile(event)" hidden>
+        </div>
+        <div class="profile-name">
+        <!----------------------SUPERADMIN NAME----------------------------->
+        <span class="user-name" id="superadmin_username"></span> <br><br><br>
+        </div>
+        
+        <div class="profile-id margin">
+        
+        <span class="bold" >ID : </span>
+        <!----------------------SUPERADMIN EMAIL----------------------------->    
+        <span class="user-id" id="superadmin_id"></span>
+        </div>
+
+        <div class="profile-email margin">
+        
+        <span class="bold">Email : </span>
+        <!----------------------SUPERADMIN EMAIL----------------------------->    
+        <span class="user-email" id="superadmin_email"></span>
+        </div>
+        <div class="profile-number margin">
+        
+        <span class="bold">Contact Number : </span>
+        <!----------------------SUPERADMIN NUMBER----------------------------->   
+        <span class="user-phone-number" id="superadmin_contact"></span>
+        </div>
+       
+        </div>
+        <!----------------------SUPERADMIN EDIT----------------------------->   
+        <div class="edit-information">
+        <div class="actions">
+        <div class="edit-container one">
+        <button class="edit" >EDIT</button>
+        </div>
+        <div class="edit-container two">
+        <button class="change-pass" >CHANGE PASSWORD</button>
+        </div>
+        </div>
+        
+        <!-- FULL-NAME -->
+        <div class="edit-inputs">           
+        <div class="full-name container">
+        <div class="f-name ">
+        <label for="f-name">First Name</label>
+        <!----------------------SUPERADMIN EDIT FIRST NAME----------------------------->   
+        <input type="text" class="first-name" id="superadmin_firstname_field" placeholder="Enter First Name...">
+        </div>
+        <div class="l-name ">
+        <label for="lst-name">Last Name</label>
+        <!----------------------SUPERADMIN EDIT LAST NAME----------------------------->   
+        <input type="text" class="last-name" id="superadmin_lastname_field" placeholder="Enter Last Name...">
+        </div>
+        </div>
+        
+         <!-- PHONE-EMAIL -->
+        <div class="phone-mail container">
+        <div class="phone-num ">
+        <label for="p-number">Phone number</label>
+        <!----------------------SUPERADMIN EDIT PHONE----------------------------->   
+        <input type="text" class="phone-number" id="superadmin_contact_field" placeholder="Enter Phone Number...">
+        </div>
+        <div class="e-mail ">
+        <label for="mail">Email</label>
+        <!----------------------SUPERADMIN EDIT EMAIL----------------------------->   
+        <input type="text" class="email" id="superadmin_email_field" placeholder="Enter Email...">
+        </div>
+        </div>
+          
+        <!-- UPDATE PROFILE -->
+        <!----------------------UPDATE BUTTON-----------------------------> 
+        <button class="update-btn" onclick="editUserInfo()" disabled>UPDATE</button>
+        </div>
+
+        <div class="change-inputs">           
+        <div class="old container">
+        <div class="old-psd ">
+        <label for="old-pswrd">Old Password</label>
+        <!----------------------OLD PASSWORD----------------------------->   
+        <input type="text" class="old-password" id="superadmin_oldpassword_field" placeholder="Enter Old Password...">
+        </div>
+        <div class="new ">
+        <label for="new-psd">New Password</label>
+        <!----------------------NEW PASSWORD----------------------------->   
+        <input type="text" class="new-password" id="superadmin_newpassword_field" placeholder="Enter New Password...">
+        </div>
+        </div>
+    
+
+        <!-- PHONE-EMAIL -->
+        <div class="phone-mail container">
+        <div class="confirm ">
+        <label for="c-psd">Confirm Password</label>
+        <!----------------------CONFIRM PASSWORD----------------------------->   
+        <input type="text" class="confirm-password" id="superadmin_confirmpassword_field" placeholder="Enter Confirm Password...">
+        </div>
+        </div>
+    
+        <!-- UPDATE PROFILE -->
+        <div class="save">
+        <div>
+        <!----------------------SAVE----------------------------->   
+        <button class="savebtn" onclick="changePasswordAction()" disabled>SAVE</button>
+        </div>
+        </div>
+
+        <!-- FULL NAME END -->
+        </div>
+
+        <!-- EDIT INFO -->
+        </div>
+        <!-- MARGIN END -->
+        </div>
+        <!-- PROFILE CONTAINER END -->
+        </div>
+        <!-- END HOME -->
+        </div>
+        <!-- END WRAPPER -->  
+        </div>
+            <!-- JS BACKEND -->
+            <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
+            <script>                    // Your web app's Firebase configuration
+                // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+                var firebaseConfig = {
+                    apiKey: "AIzaSyCznGmM6_l9vuddjONG8c-Z4du3-LXlQNw",
+                    authDomain: "e-tracker-51b2a.firebaseapp.com",
+                    projectId: "e-tracker-51b2a",
+                    storageBucket: "e-tracker-51b2a.appspot.com",
+                    messagingSenderId: "180907238573",
+                    appId: "1:180907238573:web:c5745adb36aaea4299d224",
+                    measurementId: "G-Z0YPB2DTZN"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            //firebase.analytics();
+
+   
+            </script>
+            <script src="js/profile_backend.js"></script>
+</body>
+</html>

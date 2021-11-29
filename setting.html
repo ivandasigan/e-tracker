@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Tracker | Setting</title>
+    <link rel="stylesheet" href="css/setting.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/setting.js" defer></script>
+
+</head>
+    <style>
+        .faculty-indicator 
+        {
+        display: flex;
+        height: 30px;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0,0,.5);
+        color: #fafafa;
+        margin-top: 10px;
+        transition: .5s ease;
+        padding: 0 5px;
+        position: relative;
+        }
+        .faculty-indicator .fa 
+        {
+        margin-right: 5px;
+        }
+        .faculty-indicator .fa::after
+        {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 30px;
+        background-color:#cfd2cd;
+        top: 0;
+        left: 27px;
+                    
+        }
+        .faculty-indicator span 
+        {
+        font-size: .8rem;
+        padding: 0 8px;
+        }
+        .faculty-indicator:hover
+        {
+        background-color: #212529;
+        }
+    </style>
+<body>
+
+        <!----------------------HOME----------------------------->     
+        <div class="wrapper">
+        <!----------------------TOP MENU----------------------------->  
+        <div class="navigation">
+        <!-- LEFT - NAV - LINKS -->
+        <div class="side-nav">
+        <!-- PROJECT - NAME -->
+        <div class="title-name"><h1 class="project-name header-title">PHINMA Scholar <br>E-Tracker</h1><span class="position">superadmin</span></div>
+        <!-- UL LI -->
+        <div class="link">
+        <ul class="links">
+        <li>
+            <a href="dashboard.html" class="dashboard"><i class="fa fa-bar-chart" aria-hidden="true"></i><span>Dashboard</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true" id="icon"></i>
+        </li>
+        <li >
+            <a href="addStudent.html" class="student dashboard"><i class="fa fa-user" aria-hidden="true"></i><span>Student</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li >
+            <a href="faculty.html" class="faculty dashboard"><i class="fa fa-address-book" aria-hidden="true"></i><span>Faculty</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+            
+            <!-- INDICATOR -->
+            <div class="faculty-indicator" id="faculty_indicator">
+            <i class="fa fa-bell" style="color: #fafafa;"></i>
+            <span id="void_count">3</span>
+            </div>
+            <!-- INDICATOR -->
+    
+        </li>
+        <li>
+            <a href="setSchedule.html" class="setting dashboard"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Set Schedule</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li >
+            <a href="dtr.html" class="dtr dashboard"><i class="fa fa-calendar-times-o" aria-hidden="true"></i><span>DTR</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li>
+            <a href="renew.html" class="renewal dashboard"><i class="fa fa-check-square-o" aria-hidden="true"></i><span>Renewal</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li>
+            <a href="Announcement.php" class="announcement dashboard"><i class="fa fa-envelope-open" aria-hidden="true"></i><span>Announcement</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+
+        <li class="active">
+            <a href="setting.html" class="announcement dashboard" ><i class="fa fa-cog" aria-hidden="true"></i><span>Settings</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        </div>
+        </ul>
+                
+        <!-- FOOTER LEFT -->
+        <div class="left-footer">
+            <img class="phinma" src="img/phinma.svg" alt="">
+        <div class="socials">
+            <a href="https://www.facebook.com/phinmaupang"><img src="img/fb.svg" alt=""></a><a href="https://www.instagram.com/phinmaupangs"><img src="img/ig.svg" alt=""></a><a href="http://www.up.phinma.edu.ph/"><img src="img/mail.svg" alt=""></a> 
+        </div>
+        <span>(075) 522 5635</span>
+        </div>
+        <!-- SIDE NAV END -->
+        </div>
+        <!-- NAV CONTAINER END -->
+        </div>
+    
+        <!----------------------TOP MENU----------------------------->   
+        <!-- UPPER MENU  -->
+        <div class="add-home home">
+        <div class="row indent upper-nav">
+        <div class="col-1">
+        <!----------------------DISPLAY SEMESTER----------------------------->       
+        <span class="school-year header-title"  id="school_year">1st Semester | 2019-2020 </span>
+        </div>
+        <!-- LOGO DISPLAY  -->
+        <!-- LOGO DISPLAY  -->
+        <div class="col-2">
+            <center><img src="img/main.png" alt="" width="45" class="logo" style="transform: translateY(-16px);" ></center>
+        </div>
+        
+        <!----------------------TOTAL NOTIFICATION NUMBER----------------------------->       
+        <div class="col-3">
+        <a href="userlogs.html" class="user-activity" style="transform: translateX(-15px);">
+        <i class="fa fa-cogs"></i>
+        </a> 
+        <div class="notif">
+        <div class="badge"  id="notif_bell"><span class="total-notif" id="notif_count">3</span></div>
+        <a href="applicant.html" ><i class="fa fa-bell" aria-hidden="true"></i></a>
+        </div>
+                   
+        <div class="user-cred ">
+        <!----------------------DISPLAY PHOTO----------------------------->
+        <img src="img/default_user_image.png" id="profileImage" alt="" width="40" height="40" class="user-photo">
+        
+        <!----------------------USER NAME TOP----------------------------->   
+        <span class="user-name" id="user_name"></span>
+
+        <!----------------------PROFILE DROPDOWN----------------------------->
+        <div class="dropdown">
+        <i class="fa fa-sort-desc user-dropdown" aria-hidden="true"></i>
+        <div class="dropdown-content">
+        <a href="profile.html">Profile</a><a href="#" onclick="logout_action()">Logout</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+                      
+        <div class="add indent">
+        <div class="setting-header-wrapper">
+        <div class="setting" >
+        <span class="add-label label">Settings</span>
+        <p style="margin-top: 10px;">Make neccessary configuration for you system.</p>
+        </div>
+        </div>
+        </div>
+
+        <!-- INPUT -->
+        <div class="requirements">
+        <div class="col-1-input input indent">
+        <div class="add-new-input">
+        <label class="school-year-label" for="first">School Year</label>
+        <!----------------------SET YEAR----------------------------->
+        <input class="school-year-input" type="text" placeholder="eg.. 2020-2021" id="settings_school_year">
+        </div>
+                
+        <div class="add-new-input">
+        <label class="semester-label" for="last">Semester</label>
+        <!----------------------SET SEM----------------------------->
+        <input class="semester-input" type="text" placeholder="eg... 1st" id="settings_semester">
+        </div>
+         <!-- SAVE -->
+         <div class="setting-save"><button class="save-btn save-edit" onclick="save()" disabled>Save</button></div>
+ 
+        <!----------------------CONTAINER FOR ADDED SCHOLARSHIP----------------------------->
+        <div class="scl-container">
+        <div class="newScholarship">
+        </div>
+        </div>
+        </div>
+        </div>
+        
+        </div>
+        <!-- END HOME -->
+        </div>
+        <!-- END WRAPPER -->  
+        </div>
+                <!-- JS BACKEND -->
+                <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
+                <script>
+                    // Your web app's Firebase configuration
+                    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+                    var firebaseConfig = {
+                        apiKey: "AIzaSyCznGmM6_l9vuddjONG8c-Z4du3-LXlQNw",
+                        authDomain: "e-tracker-51b2a.firebaseapp.com",
+                        projectId: "e-tracker-51b2a",
+                        storageBucket: "e-tracker-51b2a.appspot.com",
+                        messagingSenderId: "180907238573",
+                        appId: "1:180907238573:web:c5745adb36aaea4299d224",
+                        measurementId: "G-Z0YPB2DTZN"
+                    };
+                    // Initialize Firebase
+                    firebase.initializeApp(firebaseConfig);
+                    var storage = firebase.storage();
+                    var db = firebase.firestore();
+                    //firebase.analytics();
+
+        // ====> FIREBASE AUTH <========= //
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+            // User is signed in.
+            if(user != null) {
+        
+            } else {
+                // user is null
+            }
+            } else {
+            // No user is signed in.
+            console.log("user is not signed in");
+            db.collection("CSDL").doc("Userlogs").collection("logs").doc().set({
+                activity : "User logged out",
+                date : getDate(),
+                time : getTime()
+            }).then(() => {
+                window.location.href = "log-in.html"
+            })
+            }
+        }); 
+
+
+             // ===> LOGOUT <===== //
+            function logout_action() {
+                firebase.auth().signOut().then(() => {
+                    
+                })
+                .catch((error) => {
+                    console.log("ERROR SIGN OUT: " + error.message);
+                });
+                console.log("logout");
+                }
+            // ===> LOGOUT <===== //
+            // GET CURRENT DATETIME //
+            var date = new Date();
+            var month = date.getMonth();
+            var myear = date.getFullYear();
+            var _date = date.getDate();
+            // GET CURRENT DATETIME //  
+            var semester_log = "School year and semester sets successfully";
+            // INITIALIZE ELEMENTS
+            var faculty_indicator = document.getElementById("faculty_indicator");
+            var void_count = document.getElementById("void_count");
+            var schoolyear = document.getElementById("school_year");
+            var settings_school_year = document.getElementById("settings_school_year");
+            var settings_semester = document.getElementById("settings_semester");
+            var notifCount = document.getElementById("notif_count");
+            var user_name = document.getElementById("user_name");
+            var notif_bell = document.getElementById("notif_bell");
+            displayProfileImageAndUsername();   
+            displayNotifCount();
+            function displayProfileImageAndUsername() {
+            // FETCH IMAGE URL N DISPALY
+            var image_name = localStorage.getItem("image_name");
+            var profileImage = document.getElementById("profileImage");
+            var image_url = localStorage.getItem("image_url");
+            var username = localStorage.getItem("user_name");
+            if(image_url != null) {
+                profileImage.src = image_url
+            } else {
+                storage.ref("CSDL/profilePicture/" + image_name).getDownloadURL().then((url) => {
+
+                    localStorage.setItem("image_url", url)
+                    profileImage.src = url;
+                    
+                }).catch((error) => {
+                    console.log(error.message);
+                })
+            }
+            if(username != null) {
+                console.log("USERNAME LOCAL IS NOT NULL " + username)
+                user_name.innerHTML = username
+            } else {
+                console.log("USERNAME LOCAL IS  NULL")
+                db.collection("CSDL").doc("Profile").get().then((doc) => {
+                    if(doc.exists) {
+                        var jsonData = doc.data();
+                        var firstName = jsonData["first_name"];
+                        user_name.innerHTML = firstName;
+                        localStorage.setItem("user_name", firstName);
+                    
+                    }
+                }).catch((Error) => {
+                    console.log(Error.message);
+                })
+            }
+
+        }
+        displayProfileImageAndUsername();
+        function displayProfileImageAndUsername() {
+    // PROFILE IMAGE DISPLAY
+            var image = document.getElementById("profileImage");
+
+            var image_name = localStorage.getItem("image_name");
+            storage.ref("CSDL/profilePicture/" + image_name).getDownloadURL().then((url) => {
+                console.log(url);
+                image.src = url;
+        
+            }).catch((error) => {
+                console.log("ERROR RETRIEIVNG IMAGE " + error.message);
+                image.src = "img/default_user_image.png"
+            })
+            db.collection("CSDL").doc("Profile").onSnapshot((doc) => {
+            if(doc.exists) {
+                var jsonData = doc.data();
+                var firstName = jsonData["first_name"];
+                user_name.innerHTML = firstName;
+                }
+            })
+        }
+
+        function displayNotifCount() {
+            
+            var count = 0;
+            db.collection("STUDENT_MOBILE").where("grant", "==", false).onSnapshot((querySnapshot) => {
+            querySnapshot.docChanges().forEach((change) => {
+                if(change.type === "added") {
+                    var jsonData = change.doc.data();
+                    count+=1;
+                } 
+            })
+            notifCount.innerHTML = count;
+            localStorage.setItem("notif_count", count);
+            
+            notifCount.innerHTML = localStorage.getItem("notif_count") != 0 ? localStorage.getItem("notif_count") : "";
+            notif_bell.style.background = localStorage.getItem("notif_count") != 0 ? "#e1ae2d" : "#e1ae2d00";
+            })
+        }
+
+        function save() {
+            localStorage.setItem("school_year", settings_school_year.value);
+            localStorage.setItem("semester", settings_semester.value);
+            displaySchoolYearAndSemester(); 
+            addUserLogs(semester_log);
+        }
+        displaySchoolYearAndSemester();
+        function displaySchoolYearAndSemester() {
+            var schooYearLabel = localStorage.getItem("school_year") != null ? localStorage.getItem("school_year") : "";
+            var schoolSemesterLabel = localStorage.getItem("semester") != null ? localStorage.getItem("semester") + " Semester" : "";
+            var headerSchoolYear = schoolSemesterLabel + " | " + schooYearLabel;
+            schoolyear.innerHTML = headerSchoolYear != " | " ? headerSchoolYear:"";
+        }
+function addUserLogs(log) {
+    db.collection("CSDL").doc("Userlogs").collection("logs").doc().set({
+        activity : log,
+        date : getDate(),
+        time : getTime()
+      }).then(() => {
+       
+      }).catch((Error) => {
+
+      })
+}
+function voidCount() {
+    db.collection("CSDL").doc("Faculty").collection("faculties").where("report" , "==", "yes").get().then((queryDocs) => {
+        queryDocs.forEach((doc) => {
+            if(doc.exists) {
+                console.log(doc.data());
+                count+=1;
+            } else {
+                console.log("Dodsadas")
+            }
+        })
+    }).then(() => {
+        displayVoidNotif();
+    }).catch((Error) => {
+
+    })
+}
+
+
+function displayVoidNotif() {
+    if(count == 0) {
+        faculty_indicator.innerHTML = "";
+        faculty_indicator.style.background = "#00000000";
+        return;
+    }
+    void_count.innerHTML = count;
+}
+function getMonthName(month) {
+    switch(month) {
+        case 1:
+            return "January";
+        case 2: 
+            return "February";
+        case 3:
+            return "March";
+        case 4:
+            return "April";
+        case 5:
+            return "May";
+        case 6:
+            return "June";
+        case 7:
+            return "July";
+        case 8:
+            return "August";
+        case 9:
+            return "September"
+        case 10:
+            return "October";
+        case 11:
+            return "November";
+        case 12:
+            return "December";
+    }
+  }
+    function getTime() {
+        var currentTime = date.toLocaleTimeString([], { hour: '2-digit', minute: "2-digit" });
+        return currentTime;
+    }
+    function getDate() {
+        var m_month = getMonthName(month + 1);
+        var m_day = _date;
+        var m_year = year;
+        var datetime =  m_month + " " + m_day + ", " + m_year;
+        return datetime;
+    }
+        </script>
+</div>
+</body>
+</html>

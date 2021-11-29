@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Tracker | Print Document</title>
+    <link rel="stylesheet" href="css/print.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+    <div class="wrapper" id="wrapper_back">
+        <a href="userlogs.html">
+            <button id="b"><i class="fa fa-arrow-left"></i></button>
+        </a>
+   
+    <br><br>
+    <div class="logo">
+    <img src="img/main.png" alt="" width="50" height="60">
+    &nbsp;&nbsp;
+    <span>PHINMA <br> E-Tracker</span>
+    <span style="font-size: .6rem;text-align: center;margin-top: 4px;color: #f2e9e4;">Automated <br> Data Time Record</span>
+    </div>
+    <div class="title">
+    <h2>Transactions</h2>
+    <span id="date">17 January, 2018</span>
+    </div>
+
+    <div class="short-desc">
+    <strong id="activity">Added Students</strong>
+    <span>PHINMA Upang Inc.</span>
+    <span>CSDL</span>
+    </div>
+
+    <div class="lists">
+    <table id="transaction_table">
+
+    <!-------- STUDENT -------------->
+    <!-- INNER HTML FOR SET SHEDULE AND EDIT SCHEDULE -->
+    <!-- <tr>
+    <th>ID STUDENT</th>
+    <th>Name</th>
+    <th>Course</th>
+    <th>Year</th>
+    <th>Scholarship</th>
+    <th>Schedule Day</th>
+    <th>Schedule Time</th>
+    <th>Faculty</th>
+    </tr> -->
+   
+
+    <!-------- APPLICANTS -------------->
+    <!-- INNER HTML FOR APPLICANTS ACCEPTED AND REJECTED -->
+    <!-- <tr>
+    <th>Name APPLICANTS</th>
+    <th>ID</th>
+    <th>Course</th>
+    <th>Year</th>
+    <th>Scholarship</th>
+    <th>Phone Number</th>
+    <th>Email</th>
+    </tr> -->
+
+    <!-- VOID -->
+    <!-- INNER HTML FOR VOID STUDENT ACCEPTED AND REJECTED -->
+    <!-- <tr>
+    <th>Name VOID</th>
+    <th>ID</th>
+    <th>Course</th>
+    <th>Year</th>
+    <th>Scholarship</th>
+    <th>Phone Number</th>
+    <th>Email</th>
+    </tr> -->
+
+    <!-- SETTING -->
+    <!-- INNER HTML FOR SETTING SEMESTER -->
+    <!-- 
+    <tr>
+    <th>Name SETTINGS</th>
+    <th>ID</th>
+    </tr> 
+    -->
+
+
+    <!-------- FACULTY -------------->
+    <!-- INNER HTML FOR FACULTY EDIT,IMPORT,DELETE,UPDATE,ADD -->
+    <!-- <tr>
+    <th>Name FACULTY</th>
+    <th>ID</th>
+    <th>Department</th>
+    <th>Subject Code</th>
+    </tr> -->
+
+    <!-- RENEWED STUDENTS -->
+    <!-- <th> ID RENEW</th>
+    <th> Name</th>
+    <th>Course</th>
+    <th>Year</th>
+    <th>Department</th>
+    <th>Scholarship</th>
+    <th>Schedule Day</th>
+    <th>Schedule Time</th>
+    <th>Total hours</th> MUST BE COMPLETE -->
+
+    <!-- LOGGED IN SUPERAD AND LOGGED OUT -->
+    <!-- <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Position</th>
+    <th>Date</th>
+    <th>Time</th>
+    </tr> -->
+
+    <!-- ANNOUNCEMENT -->
+    <!-- <tr>
+    <th>To ANNOUNCEMENT</th>
+    <th>From</th>
+    <th>Subject</th>
+    <th>Message</th>
+    <th style="width: 100px;">Date</th>
+    </tr> -->
+
+    <!-- UPDATE PROFILE -->
+    <!-- <tr>
+    <th>ID UPDATE</th>
+    <th>Name</th>
+    <th>Phone Number</th>
+    <th>Email</th>
+    </tr> -->
+
+    </table>
+
+    </div>
+    
+    <hr>
+    <div class="signature-name">
+    <p>Regine B. Lopez</p>
+    <p>CSDL Head Department</p>
+    <p>Phinma Upang</p>
+    </div>
+
+    <br>
+    <div class="footer">
+    <p>PHINMA UNIVERSITY OF PANGASINAN</p>
+    <P>Arellano Street Dagupan City</P>
+    <p>(075) 522 5635</p>
+    <p> <i class="fa fa-facebook"></i> <span>https://www.facebook.com/phinmaupang</span> </p>
+    <p> <i class="fa fa-instagram"></i> <span>https://www.instagram.com/phinmaupangs</span> </p>
+    <p> <i class="fa fa-envelope"></i> <span>http://www.up.phinma.edu.ph/</span> </p>
+    </div>
+    </div>
+
+    <!-- JS BACKEND -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyCznGmM6_l9vuddjONG8c-Z4du3-LXlQNw",
+            authDomain: "e-tracker-51b2a.firebaseapp.com",
+            projectId: "e-tracker-51b2a",
+            storageBucket: "e-tracker-51b2a.appspot.com",
+            messagingSenderId: "180907238573",
+            appId: "1:180907238573:web:c5745adb36aaea4299d224",
+            measurementId: "G-Z0YPB2DTZN"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        //firebase.analytics();
+        </script>
+        <script src="js/print_backend.js"></script>
+
+</body>
+</html>

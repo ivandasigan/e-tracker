@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E - Tracker | Log in</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/login.js" defer></script>
+    <link rel="stylesheet" href="css/log-in.css">
+</head>
+<body style="background-image: url(img/bg.png);background-size: cover;background-repeat: no-repeat;background-color: white;">
+
+    <div class="container">
+        <div class="btn-group-vertical p-5 d-flex justify-content-center align-items-center " >
+        <div class="row pb-5">
+        <div style="font-size: 17px;">
+        <h3 class="text-center text-white mb-4 p-1 border-bottom" style="width: 107px;">Services</h3>
+        <span class="pb-1 pr-3 text-white"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Scholarship Renewal</span> <span class="pb-1 pr-3 text-white"> <i class="fa fa-cloud" aria-hidden="true"></i> Online DTR</span> <span class="pr-3 text-white"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Record DTR</span>
+        <br>
+        </div>
+        </div>
+
+        <div class="row bg-white  p-4 d-flex justify-content-center align-items-center flex-column rounded shadow-lg" style="max-width: 500px;width: 500px;position: relative;">
+        <div class="d-flex mb-4">
+        <img src="img/front.png" alt="" width="70" height="80" class="mr-1" style="object-fit: cover;">
+        <span style="font-size: 19px;" class="font-weight-bold"> PHINMA UPANG Scholar <br> E-Tracker <br> <span style="font-size: 15px;color: rgba(0, 0, 0, .3);">Online Data Time Record</span></span>
+        </div>
+        <div class="error-message rounded mb-3">
+        <p class="error">Please fill the form correctly.</p>
+        </div>
+        <div class="form-group">
+        <label for="">Email</label>
+        <br>
+        <!-- EMAIL -->
+        <div class="form-group-1">
+        <input type="text" placeholder="Enter your email" class="rounded pl-5 email" name="emailfield" id="emailfield" required style="width: 400px;">
+        <div class="user-icon u-i">
+        <i class="fa fa-user"></i>
+        </div>
+        </div>
+        </div>
+
+        <div class="form-group form-group-2">
+        <label for="">Password</label>
+        <br>
+        <!-- PASSWORD -->
+        <div class="form-group-1">            
+        <input type="password" placeholder="Enter your password" class="pl-5 pr-3 rounded password" name="passwordfield" id="passwordfield" style="width: 400px;" required >
+        <div class="user-icon u-i-1">
+        <i class="fa fa-lock"></i>
+        </div>
+        <div class="show-hide">
+        <button class="show-pass">
+        <i class="fa fa-eye-slash"></i>
+        </button>
+        </div>
+        </div>
+        </div>
+
+        <!-- LOG IN -->
+        <button type="submit" class="text-white rounded mt-2 mb-3 border submit" onclick="LogInAction()" style="width: 400px;"> LOG IN </button>
+             
+        </div>
+        </div>
+        </div>
+
+        <!-- JS BACKEND -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+        <script>
+            
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyCznGmM6_l9vuddjONG8c-Z4du3-LXlQNw",
+            authDomain: "e-tracker-51b2a.firebaseapp.com",
+            projectId: "e-tracker-51b2a",
+            storageBucket: "e-tracker-51b2a.appspot.com",
+            messagingSenderId: "180907238573",
+            appId: "1:180907238573:web:c5745adb36aaea4299d224",
+            measurementId: "G-Z0YPB2DTZN"
+        };
+            // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+            //firebase.analytics();
+        </script>
+        <script src="js/auth.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Tracker | Add</title>
+    <link rel="stylesheet" href="css/setSchedule.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/read-excel-file@4.1.0/bundle/read-excel-file.min.js"></script>
+    <script src="js/add.js" defer></script>
+    <script src="js/sched.js" defer></script>
+</head>
+    <style>
+        .faculty-indicator 
+        {
+        display: flex;
+        height: 30px;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0,0,.5);
+        color: #fafafa;
+        margin-top: 10px;
+        transition: .5s ease;
+        padding: 0 5px;
+        position: relative;
+        }
+        .faculty-indicator .fa 
+        {
+        margin-right: 5px;
+        }
+        .faculty-indicator .fa::after
+        {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 30px;
+        background-color:#cfd2cd;
+        top: 0;
+        left: 27px;
+                    
+        }
+        .faculty-indicator span 
+        {
+        font-size: .8rem;
+        padding: 0 8px;
+        }
+        .faculty-indicator:hover
+        {
+        background-color: #212529;
+        }
+    </style>
+<body>
+
+        <!----------------------HOME----------------------------->       
+        <div class="wrapper">
+        <!----------------------NAVIGATION----------------------------->       
+        <div class="navigation">
+        <!-- LEFT - NAV - LINKS -->
+        <div class="side-nav">
+        <!-- PROJECT - NAME -->
+        <div class="title-name"><h1 class="project-name header-title">PHINMA Scholar <br>E-Tracker</h1><span class="position">superadmin</span></div>
+        <!-- UL LI -->
+        <div class="link">
+        <ul class="links">
+        <li>
+            <a href="dashboard.html" class="dashboard" ><i class="fa fa-bar-chart" aria-hidden="true"></i><span>Dashboard</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true" id="icon"></i>
+        </li>
+        <li>
+            <a href="addStudent.html" class="student dashboard" ><i class="fa fa-user" aria-hidden="true"></i><span>Student</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true" ></i>
+        </li>
+        <li>
+            <a href="faculty.html" class="faculty dashboard" ><i class="fa fa-address-book" aria-hidden="true"></i><span>Faculty</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+            
+            <!-- INDICATOR -->
+            <div class="faculty-indicator" id="faculty_indicator">
+            <i class="fa fa-bell" style="color: #fafafa;"></i>
+            <span id="void_count">3</span>
+            </div>
+            <!-- INDICATOR -->
+            
+        </li>
+        <li  class="active">
+            <a href="setSchedule.html" class="setting dashboard" ><i class="fa fa-clock-o" aria-hidden="true"></i><span>Set Schedule</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+       
+        <li>
+            <a href="dtr.html" class="dtr dashboard" ><i class="fa fa-calendar-times-o" aria-hidden="true"></i><span>DTR</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li>
+            <a href="renew.html" class="renewal dashboard" ><i class="fa fa-check-square-o" aria-hidden="true"></i><span>Renewal</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li>
+            <a href="Announcement.php" class="announcement dashboard" ><i class="fa fa-envelope-open" aria-hidden="true"></i><span>Announcement</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li>
+            <a href="setting.html" class="announcement dashboard" ><i class="fa fa-cog" aria-hidden="true"></i><span>Settings</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        </div>
+        </ul>
+                
+        <!-- FOOTER LEFT -->
+        <div class="left-footer">
+            <img class="phinma" src="img/phinma.svg" alt="">
+        <div class="socials">
+            <a href="https://www.facebook.com/phinmaupang" ><img src="img/fb.svg" alt=""></a><a href="https://www.instagram.com/phinmaupangs" ><img src="img/ig.svg" alt=""></a><a href="http://www.up.phinma.edu.ph/" ><img src="img/mail.svg" alt=""></a> 
+        </div>
+        <span>(075) 522 5635</span>
+        </div>
+        <!-- SIDE NAV END -->
+        </div>
+        <!-- NAV CONTAINER END -->
+        </div>
+
+        <!----------------------TOP MENU----------------------------->       
+        <div class="add-home home">
+
+        <div class="row indent upper-nav"> 
+        <div class="col-1">
+        <!----------------------DISPLAY SEMESTER----------------------------->       
+        <span class="school-year header-title"  id="school_year">1st Semester | 2019-2020 </span>
+        </div>
+         <!-- LOGO DISPLAY  -->
+        <div class="col-2">
+            <center><img src="img/main.png" alt="" width="45" class="logo" style="transform: translateY(-16px);" ></center>
+        </div>
+
+         <!----------------------TOTAL NOTIFICATION NUMBER----------------------------->       
+         <!-- NOTIFICATION DISPLAY  -->
+        <div class="col-3">
+
+        <a href="userlogs.html" class="user-activity" style="transform: translateX(-15px);">
+        <i class="fa fa-cogs"></i>
+        </a> 
+    
+        <div class="notif">
+
+        <div class="badge" id="notif_bell"><span class="total-notif"  id="notif_count"></span></div>
+        <a href="applicant.html" ><i class="fa fa-bell" aria-hidden="true"></i></a>
+        </div>
+           
+        <div class="user-cred ">
+        <!----------------------DISPLAY PHOTO----------------------------->
+        <img src="img/default_user_image.png" id="profileImage" alt="" width="40" height="40" class="user-photo">
+
+        <!----------------------USER NAME TOP----------------------------->   
+        <span class="user-name" id="user_name">Katherine</span>
+
+        <!----------------------PROFILE DROPDOWN----------------------------->
+        <div class="dropdown">
+
+        <i class="fa fa-sort-desc user-dropdown" aria-hidden="true"></i>
+        <div class="dropdown-content">
+        <a href="profile.html">Profile</a><a href="#" onclick="logout_action()">Logout</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+   
+        <div class="search">
+         <!----------------------SEARCH----------------------------->
+
+        <input type="text" placeholder="Enter Student . . ." class="search-bar"  id="search_student_field" oninput="searchStudentOnInput()">
+        <button class="search-btn" onclick="searchAction()"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+
+        <!-- HEADER TITLE -->
+        <div class="add indent">
+
+        <div class="students">
+        <button class="add-btn">+</button>
+        <span class="add-label label"> Set Student Schedule</span>
+        </div>
+            
+        <!----------------------SORTING----------------------------->
+        <div class="filters indent">
+        <div class="import">
+        <!-- IMPORT BUTTON -->
+        <button class="import-btn">Import <i class="fa fa-upload"></i></button>
+        <!-- IMPORT FILE -->
+        <input type="file" class="import-file" hidden onchange="loadFile(event)">
+        </div>
+       
+        <!-- SORT BY DEPARTMENT -->   
+        <!-- <select name=“department“ id="department_table_option" onchange="departmentStudentOnChange()" class=“dept”>
+        <option value="dept">Department</option>
+        <option value="REGISTRAR">REGISTRAR</option>
+        <option value="CSDL">CSDL</option>
+        <option value="FINANCE">FINANCE</option>
+        <option value="MARKETING">MARKETING</option>
+        <option value="ITS">ITS</option>
+        <option value="GSD">GSD</option>
+        <option value="BASIC ED">BASIC ED</option>
+        <option value="CITE">CITE</option>
+        <option value="CEA">CEA</option>
+        <option value="CSS">CSS</option>
+        <option value="CMA">CMA</option>
+        <option value="CAS">CAS</option>
+        <option value="COO">COO</option>
+        <option value="CHS">CHS</option>
+        </select> -->
+        <!-- END SORT -->
+        </div>
+        </div>
+        
+        <div class="header-details" style="width: 100%;height:45px;margin-top: 10px;color: rgba(0, 0,0,.5);">  
+        <label for="" style="margin-left: 30px;color: rgba(0, 0,0,.5);">Result : </label>
+        <span id="result">&nbsp; 0</span>
+        </div>
+        <!----------------------TABLE----------------------------->
+        <div class="list">
+        <table id="studentTable" border="1">
+        <tr class="header">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Course</th>
+        <th>Year</th>
+        <th>Scholarship</th>
+        <th>Schedule Day</th>
+        <th>Schedule Time</th>
+        <th>Faculty</th>
+        <th>Actions</th>
+        </tr>
+
+        <!-- 
+        <tr id="1">
+        <td class="row-data">Ivan Dasigan</td>
+        <td class="row-data">03-2021-8292</td>
+        <td class="row-data">BSIT</td>
+        <td class="row-data">1</td>
+        <td class="row-data"></td>
+        <td class="row-data"></td>
+        <td class="row-data"></td>
+        <td class="row-data"></td>
+        <td>
+        <Button class="edit"onclick="show()">edit</Button>
+        </td>
+        </tr>
+
+        <tr id="2">
+        <td class="row-data">Ivan Dasigan</td>
+        <td class="row-data">03-2021-8292</td>
+        <td class="row-data">BSIT</td>
+        <td class="row-data">1</td>
+        <td class="row-data"></td>
+        <td class="row-data"></td>
+        <td class="row-data"></td>
+        <td class="row-data"></td>
+        <Button class="edit" onclick="show()">edit</Button>
+        </td>
+        </tr> -->
+        
+        <!-- <tr  id="3">
+        <td class="row-data">Gil Dasigan</td>
+        <td class="row-data">CAS</td>
+        <td class="row-data">4</td>
+        <td class="row-data">CAS</td>
+        <td class="row-data">10:30</td>
+        <td class="row-data">SA</td>
+        <td>
+        <Button class="edit" onclick="show()">edit</Button></td>
+        </tr>
+        
+        
+         END HOME -->
+        </table>
+        </div>        
+        </div>
+        </div>
+        <!-- END WRAPPER -->  
+        </div>
+
+        <!----------------------ADD STUDENTS----------------------------->
+
+        <!-- MODAL TO ADD STUDENTS -->
+        <div class="modal-add" id="modal_add">
+
+        <div class="add-student-inputs">
+        <!-- CLOSE MODAL -->
+        <button class="close-btn x"><i class="fa fa-close"></i></button>
+        <h1>Set Student Schedule</h1>
+
+        <div class="error-message rounded mb-3">
+        <p class="error">Please fill the form correctly.</p>
+        </div>
+
+        <div class="col-1-input">
+        <div class="add-new-inputid" style="position: relative;">
+        <label class="id-label" for="id">ID</label>
+        <br>
+        <!-- STUDENT ID INPUT -->
+        <input class="id-input id" type="text" placeholder="Student ID..." oninput="student_ID_oninput()" id="modal_add_id" style="width:100%;padding: 5px 10px ;border-radius: 5px;border: 1px solid rgba(0, 0, 0, .2);padding: 5px;">
+        </div>
+        </div>
+
+        <div class="col-1-input input">
+        <div class="add-new-input">
+        <!-- FIRST NAME INPUT -->
+        <label class="first-name-label" for="first">Last Name</label>
+        <input class="first-name-input fname" type="text" placeholder="Last name"  style="border-radius: 5px;" id="modal_add_lastname">
+        </div>
+    
+        <div class="add-new-input">
+        <label class="last-name-label" for="last">First Name</label>
+        <!-- LAST NAME INPUT -->
+        <input class="last-name-input lname" type="text" placeholder="First name" style="border-radius: 5px;" id="modal_add_firstname">
+        </div>
+    
+        <div class="add-new-input">
+        <label class="mi-label" for="mi">Middle Name</label>
+        <!-- MIDDLE NAME INPUT -->
+        <input class="mi-input mname" type="text" placeholder="Middle name" style="border-radius: 5px;" id="modal_add_middlename">
+        </div>
+        </div>
+
+        <div class="col-2-input input">
+        <div class="add-new-input">
+        <label class="department-label" for="course" >Department</label>
+        <!-- COURSE INPUT -->
+        <select name="school-year" id="modal_add_department_option">
+            <option value="REGISTRAR">REGISTRAR</option>
+            <option value="CSDL">CSDL</option>
+            <option value="FINANCE">FINANCE</option>
+            <option value="MARKETING">MARKETING</option>
+            <option value="ITS">ITS</option>
+            <option value="GSD">GSD</option>
+            <option value="BASIC ED">BASIC ED</option>
+            <option value="CITE">CITE</option>
+            <option value="CEA">CEA</option>
+            <option value="CSS">CSS</option>
+            <option value="CMA">CMA</option>
+            <option value="CAS">CAS</option>
+            <option value="COO">COO</option>
+            <option value="CHS">CHS</option>
+        </select>
+        </div>
+
+        <div class="add-new-input">
+        <label class="year-label" for="year">Year</label>
+        <!-- YEAR LEVEL INPUT -->
+        <select name="school-year" id="modal_add_year_option">
+            <option value="1st Year">1st Year</option>
+            <option value="2nd Year">2nd Year</option>
+            <option value="3rd Year">3rd Year</option>
+            <option value="4th Year">4th Year</option>
+            <option value="5th Year">5th Year</option>
+        </select>
+        </div>
+
+        <div class="add-new-input">
+        <label class="subject-code-label" for="sc" >Subject Code</label>
+        <!-- SUBJECT CODE -->
+        <input class="mi-input scode" type="text" id="modal_add_subjectcode" placeholder="Subject Code" style="border-radius: 5px;" >
+        </div>
+        </div>
+
+        <div class="col-3-input input ">
+        <div class="add-new-input">
+        <label class="schedule-label" for="schedule">Schedule Time</label>
+        <!-- SCHEDULE INPUT -->
+        <select name="time" id="modal_add_scheduletime_option">
+        <!-- <option value="7:30-9:00">7:30-9:00</option>
+        <option value="9:00-10:30">9:00-10:30</option>
+        <option value="10:30-12:00">10:30-12:00</option>
+        <option value="12:00-1:30">12:00-1:30</option>
+        <option value="1:30-3:00">1:30-3:00</option>
+        <option value="3:00-4:30">3:00-4:30</option> -->
+        </select>
+        </div>
+
+        <div class="add-new-input">
+        <label class="department-label" for="department">Schedule Day</label>
+        <!-- DEPARTMENT INPUT -->
+        <select name="day" id="modal_add_scheduleday_option">
+        <!-- MONDAY -->
+        <!-- <option value="Mon">Mon</option>
+        <option value="Mon-Tue">Mon-Tue</option>
+        <option value="Mon-Wed">Mon-Wed</option>
+        <option value="Mon-Thu">Mon-Thu</option>
+        <option value="Mon-Fri">Mon-Fri</option> -->
+        <!-- TUESDAY -->
+        <!-- <option value="Tue">Tue</option>
+        <option value="Tue-Wed">Tue-Wed</option>
+        <option value="Tue-Thu">Tue-Thu</option>
+        <option value="Tue-Fri">Tue-Fri</option> -->
+        <!-- WEDNESDAY -->
+        <!-- <option value="Wed">Wed</option>
+        <option value="Wed-Thu">Wed-Thu</option>
+        <option value="Wed-Fri">Wed-Fri</option> -->
+        <!-- THURSDAY -->
+        <!-- <option value="Thu">Thu</option>
+        <option value="Thu-Tue">Thu-Tue</option>
+        <option value="Thu-Fri">Thu-Fri</option> -->
+        <!-- FRIDAY -->
+        <!-- <option value="Fri">Fri</option>
+        <option value="Sat">Sat</option> -->
+        </select>
+        </div>
+
+        <div class="add-new-input">
+        <label class="faculty-label" for="faculty">Faculty</label>
+        <!-- FACULTY INPUT -->
+        <select name="faculty-incharge" id="modal_add_faculty_option">
+        <!-- <option value="Alex Guarin">Alex Guarin</option>
+        <option value="Sixto Estrada">Sixto Estrada</option>
+        <option value="Trixie Cendana">Trixie Cendana</option>
+        <option value="Geneva Perez">Geneva Perez</option>
+        <option value="Cheska Santos">Cheska Santos</option>
+        <option value="Trixie Cendana">Trixie Cendana</option>
+        <option value="Gilbert Albert">Gilbert Albert</option>
+        <option value="Juanito Estrada">Juanito Estrada</option>
+        <option value="Justin Cendana">Justin Cendana</option> -->
+        </select>
+        </div>
+
+        </div>
+
+        <button class="add-save set" onclick="saveStudentAction()" disabled>Save Data</button>
+        </div>
+        </div>
+        <!-- END MODAL TO ADD STUDENTS -->
+
+       <!----------------------EDIT STUDENTS----------------------------->
+        
+        <!--  MODAL TO EDIT STUDENTS -->
+        <div class="modal-edit" id="modal_edit">
+            <div class="edit-student-inputs">
+            <button class="close-btn x"><i class="fa fa-close"></i></button>
+           
+            <h1>Edit Student</h1>
+
+            <div class="error-message rounded mb-3 em-2">
+            <p class="error er-2">Please fill the form correctly.</p>
+            </div>
+
+            <div class="edit-old-inputid">
+            <label class="id" for="id">ID</label>
+            <!--  EDIT STUDENT ID -->        
+            <input class="edit-id-input" type="text" placeholder="Student ID" id="modal_edit_studentid" style="width:100%;padding: 5px 10px ;border-radius: 5px;border-bottom: 1px solid rgba(0, 0, 0, .2);padding: 5px;pointer-events: none;">
+            </div>
+    
+            <div class="col-1-input input">
+    
+            <div class="edit-old-input">
+            <label class="edit-first-name" for="first" >Last Name</label>
+            <!--  EDIT FIRST NAME -->
+            <input class="first-name-input" type="text" placeholder="Last name" id="modal_edit_lastname" style="border-radius: 5px;pointer-events: none;">
+            </div>
+                
+            <div class="edit-old-input">
+            <label class="edit-last-name" for="last">First Name</label>
+            <!--EDIT LAST NAME -->
+            <input class="edit-last-name-input" type="text" placeholder="First name" id="modal_edit_firstname" style="border-radius: 5px;pointer-events: none;">
+            </div>
+    
+            <div class="edit-old-input">
+            <label class="mi" for="mi">Middle Name</label>
+            <!--  EDIT MIDDLE NAME -->
+            <input class="edit-mi-input" type="text" placeholder="Middle name" id="modal_edit_middlename" style="border-radius: 5px;pointer-events: none;">
+            </div>
+            </div>
+    
+            <div class="col-2-input input">
+            <div class="edit-old-input">
+            <label class="department-label" for="course" >Department</label>
+            <!-- COURSE INPUT -->
+            <select name="school-year" id="modal_edit_department_option">
+                <option value="REGISTRAR">REGISTRAR</option>
+                <option value="CSDL">CSDL</option>
+                <option value="FINANCE">FINANCE</option>
+                <option value="MARKETING">MARKETING</option>
+                <option value="ITS">ITS</option>
+                <option value="GSD">GSD</option>
+                <option value="BASIC ED">BASIC ED</option>
+                <option value="CITE">CITE</option>
+                <option value="CEA">CEA</option>
+                <option value="CSS">CSS</option>
+                <option value="CMA">CMA</option>
+                <option value="CAS">CAS</option>
+                <option value="COO">COO</option>
+                <option value="CHS">CHS</option>
+            </select>
+            </div>
+        
+            <div class="edit-old-input">
+            <label class="year-label" for="year">Year</label>
+            <!-- YEAR LEVEL INPUT -->
+            <select name="school-year" id="modal_edit_schoolyear_option">
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year">2nd Year</option>
+                <option value="3rd Year">3rd Year</option>
+                <option value="4th Year">4th Year</option>
+                <option value="5th Year">5th Year</option>
+            </select>
+            </div>
+        
+            <div class="edit-old-input">
+            <label class="subject-code-label" for="sc">Subject Code</label>
+            <!-- SUBJECT CODE -->
+            <input class="mi-input scode2" type="text" placeholder="Subject Code" style="border-radius: 5px;" id="modal_edit_subjectcode">
+            </div>
+            </div>
+    
+            <div class="col-3-input input ">
+            <div class="edit-old-input">
+            <label class="schedule-label" for="scd-time">Schedule Time</label>
+            <!-- SCHEDULE INPUT -->
+            <select name="time" id="modal_edit_scheduletime_option">
+            <!-- <option value="7:30-9:00">7:30-9:00</option>
+            <option value="9:00-10:30">9:00-10:30</option>
+            <option value="10:30-12:00">10:30-12:00</option>
+            <option value="12:00-1:30">12:00-1:30</option>
+            <option value="1:30-3:00">1:30-3:00</option>
+            <option value="3:00-4:30">3:00-4:30</option> -->
+            </select>
+            </div>
+            
+            <div class="edit-old-input">
+            <label class="department-label" for="scd-day">Schedule Day</label>
+            <!-- DEPARTMENT INPUT -->
+            <select name="day" id="modal_edit_scheduleday_option">
+            <!-- MONDAY -->
+            <!-- <option value="Mon">Mon</option>
+            <option value="Mon-Tue">Mon-Tue</option>
+            <option value="Mon-Wed">Mon-Wed</option>
+            <option value="Mon-Thu">Mon-Thu</option>
+            <option value="Mon-Fri">Mon-Fri</option> -->
+            <!-- TUESDAY -->
+            <!-- <option value="Tue">Tue</option>
+            <option value="Tue-Wed">Tue-Wed</option>
+            <option value="Tue-Thu">Tue-Thu</option>
+            <option value="Tue-Fri">Tue-Fri</option> -->
+            <!-- WEDNESDAY -->
+            <!-- <option value="Wed">Wed</option>
+            <option value="Wed-Thu">Wed-Thu</option>
+            <option value="Wed-Fri">Wed-Fri</option> -->
+            <!-- THURSDAY -->
+            <!-- <option value="Thu">Thu</option>
+            <option value="Thu-Tue">Thu-Tue</option>
+            <option value="Thu-Fri">Thu-Fri</option> -->
+            <!-- FRIDAY -->
+            <!-- <option value="Fri">Fri</option>
+            <option value="Sat">Sat</option> -->
+            </select>
+            </div>
+            
+            <div class="edit-old-input">
+            <label class="faculty-label" for="faculty">Faculty</label>
+            <!-- FACULTY INPUT -->
+            <select name="faculty-incharge" id="modal_edit_faculty_option">
+         
+            </select>
+            </div>
+            </div>
+    
+            <!--  SAVE BUTTON -->       
+            <button class="edit-save set" onclick="saveChangesAction()" >Save Changes</button>
+            </div>
+            </div>
+            
+        <!-- JS BACKEND -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
+        <script>
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            var firebaseConfig = {
+                apiKey: "AIzaSyCznGmM6_l9vuddjONG8c-Z4du3-LXlQNw",
+                authDomain: "e-tracker-51b2a.firebaseapp.com",
+                projectId: "e-tracker-51b2a",
+                storageBucket: "e-tracker-51b2a.appspot.com",
+                messagingSenderId: "180907238573",
+                appId: "1:180907238573:web:c5745adb36aaea4299d224",
+                measurementId: "G-Z0YPB2DTZN"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            //firebase.analytics();
+
+            </script>
+        <script type="text/javascript" src="js/setSchedule_backend.js"></script>
+        
+</body>
+</html>

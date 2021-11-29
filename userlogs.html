@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Tracker | Activities</title>
+    <link rel="stylesheet" href="css/userlogs.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/read-excel-file@4.1.0/bundle/read-excel-file.min.js"></script>
+    <script src="js/add.js" defer></script>
+    <script src="js/faculty.js" defer></script>
+
+</head>
+  
+<body>
+
+        <!----------------------HOME----------------------------->       
+        <div class="wrapper">
+        <!----------------------NAVIGATION----------------------------->       
+        <div class="navigation">
+        <!-- LEFT - NAV - LINKS -->
+        <div class="side-nav">
+        <!-- PROJECT - NAME -->
+        <div class="title-name"><h1 class="project-name header-title">PHINMA Scholar <br>E-Tracker</h1><span class="position">superadmin</span></div>
+        <!-- UL LI -->
+        <div class="link">
+        <ul class="links">
+        <li>
+            <a href="dashboard.html" class="dashboard" ><i class="fa fa-bar-chart" aria-hidden="true"></i><span>Dashboard</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true" id="icon"></i>
+        </li>
+        <li >
+            <a href="addStudent.html" class="student dashboard" ><i class="fa fa-user" aria-hidden="true"></i><span>Student</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li>
+            <a href="faculty.html" class="faculty dashboard"><i class="fa fa-address-book" aria-hidden="true"></i><span>Faculty</span></a></i>
+          
+            <i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li>
+            <a href="setSchedule.html" class="setting dashboard" ><i class="fa fa-clock-o" aria-hidden="true"></i><span>Set Schedule</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+
+        <li>
+            <a href="dtr.html" class="dtr dashboard" ><i class="fa fa-calendar-times-o" aria-hidden="true"></i><span>DTR</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li>
+            <a href="renew.html" class="renewal dashboard" ><i class="fa fa-check-square-o" aria-hidden="true"></i><span>Renewal</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li>
+            <a href="Announcement.php" class="announcement dashboard" ><i class="fa fa-envelope-open" aria-hidden="true"></i><span>Announcement</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li>
+            <a href="setting.html" class="announcement dashboard" ><i class="fa fa-cog" aria-hidden="true"></i><span>Settings</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        </div>
+        </ul>
+                
+        <!-- FOOTER LEFT -->
+        <div class="left-footer">
+            <img class="phinma" src="img/phinma.svg" alt="">
+        <div class="socials">
+            <a href="https://www.facebook.com/phinmaupang" ><img src="img/fb.svg" alt=""></a><a href="https://www.instagram.com/phinmaupangs" ><img src="img/ig.svg" alt=""></a><a href="http://www.up.phinma.edu.ph/"><img src="img/mail.svg" alt=""></a> 
+        </div>
+        <span>(075) 522 5635</span>
+        </div>
+        <!-- SIDE NAV END -->
+        </div>
+        <!-- NAV CONTAINER END -->
+        </div>
+    
+        <!----------------------TOP MENU----------------------------->       
+        <!-- UPPER MENU  -->
+        <div class="add-home home">
+      
+        <div class="row indent upper-nav"> 
+        <div class="col-1">
+        <!----------------------DISPLAY SEMESTER----------------------------->       
+        <span class="school-year header-title" id="school_year">1st Semester | 2019-2020 </span>
+        </div>
+        <!-- LOGO DISPLAY  -->
+        <div class="col-2">
+        <center><img src="img/main.png" alt="" width="45" class="logo" style="transform: translateY(-16px);"></center>
+        </div>
+
+         <!----------------------TOTAL NOTIFICATION NUMBER----------------------------->       
+        <div class="col-3">
+        <div class="notif">
+        <div class="badge" id="notif_bell"><span class="total-notif"  id="notif_count"></span></div>
+        <a href="applicant.html" ><i class="fa fa-bell" aria-hidden="true"></i></a>
+        </div>
+           
+        <div class="user-cred ">
+        <!----------------------DISPLAY PHOTO----------------------------->
+        <img src="img/default_user_image.png" id="profileImage" alt="" width="40" height="40" class="user-photo">
+
+        <!----------------------USER NAME TOP----------------------------->   
+        <span class="user-name" id="user_name"></span>
+
+        <!----------------------PROFILE DROPDOWN----------------------------->
+        <div class="dropdown">
+        <i class="fa fa-sort-desc user-dropdown" aria-hidden="true"></i>
+        <div class="dropdown-content">
+        <a href="profile.html" >Profile</a><a href="#" onclick="logout_action()">Logout</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- END UPPER MENU -->
+
+        <!----------------------SEARCH----------------------------->
+        <div class="search">
+        <input type="text" placeholder="Enter Activity . . ." class="search-bar" id="search_activity_field" oninput="searchActivityOnInput()">
+        <button class="search-btn" onclick="searchAction()"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+
+        <!-- HEADER TITLE -->
+        <!-- <div class="add indent">
+        <div class="faculty">
+        <span class="add-label label">Activities</span>
+        </div>
+       
+        </div> -->
+        
+        <div class="sorting indent">
+            <span class="add-label label">Activities</span>
+            <br><br>
+            <strong><span class="add-label label">Sort by Date</span></strong>
+            
+            <div class="input-date">
+                <select type="text" placeholder="Month" id="month_option">
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                </select>
+                <select type="text" placeholder="Day" id="day_option">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
+                <select type="text" placeholder="Year" id="year_option">
+                    <option value="2021">2021</option>
+                </select>
+                <button onclick="browseAction()">Browse</button>
+            </div>
+           
+            
+        </div>
+
+
+            <div class="header-details" style="display: flex;width: 100%;margin-bottom: 10px;margin-top: 1px;color: rgba(0, 0,0,.5);">  
+            <div style="margin-right: 10px;">
+            <label for="" style="margin-left: 30px;color: rgba(0, 0,0,.5);font-size: 14px;">Result : </label>
+            <span id="result" style="font-size: 14px;">&nbsp; 20</span>
+            <span>&nbsp;&nbsp;&nbsp;
+            <button class="print" onclick="printAllAction()">Print all</button>
+            </span>
+            </div>
+            </div>
+            
+        <!----------------------TABLE----------------------------->
+
+        <div class="list" id="header_acts">
+        <div class="headers acts" >
+        <div> <p>No.</p> </div>
+        <div> <p>Activity</p>  </div> 
+        <div> <p>Date</p> </div> 
+        <div> <p>Time</p> </div>  
+        <div> <p>Actions</p> </div>  
+        </div>
+
+        <!-- ACTVITY DONE -->
+        <!-- <div class="content acts">
+        <div> <p>1</p></div>
+        <div> <p> User has been logged in</p> </div> 
+        <div> <p>Today</p> </div>  
+        <div> <p>01:30 P.M</p> </div>  
+        <div> 
+        
+        <a href="print.html"><button><i class="fa fa-eye"></i></button></a>
+        <a href="#"><button><i class="fa fa-print"></i></button></a>
+        
+        </div>
+        </div> -->
+        </div>
+        </div> 
+
+        <!-- END HOME -->
+        </div>
+        <!-- END WRAPPER -->  
+        </div>
+        
+         <!-- JS BACKEND -->
+         <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
+         <script>
+             // Your web app's Firebase configuration
+             // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+             var firebaseConfig = {
+                 apiKey: "AIzaSyCznGmM6_l9vuddjONG8c-Z4du3-LXlQNw",
+                 authDomain: "e-tracker-51b2a.firebaseapp.com",
+                 projectId: "e-tracker-51b2a",
+                 storageBucket: "e-tracker-51b2a.appspot.com",
+                 messagingSenderId: "180907238573",
+                 appId: "1:180907238573:web:c5745adb36aaea4299d224",
+                 measurementId: "G-Z0YPB2DTZN"
+             };
+             // Initialize Firebase
+             firebase.initializeApp(firebaseConfig);
+             //firebase.analytics();
+ 
+             </script>
+             <script src="js/userlogs_backend.js"></script>
+</body>
+</html>

@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Tracker | Add</title>
+    <link rel="stylesheet" href="css/add.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/add.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+    <style>
+        
+        .reports
+        {
+            display: flex;
+            width: 95%;
+            justify-content: space-between;
+            margin-left: 25px;
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-radius: 2px;
+        }
+        .report-department:focus
+        {
+            background: #dfe7fd;
+            color: #fafafa;
+        }
+        
+        .report-department
+        {
+            width: 100%;
+            box-shadow:2px 2px 5px rgba(60, 60, 68, 0.1);;
+            padding: 5px 13px;
+            border-radius: 5px;
+            margin: 0 12px;
+            cursor: pointer;
+            background-color: #b7e4c7;
+            transition: .5s ;
+        }
+        .report-department > h3 
+        {
+            font-size: 1.1rem;
+            color: #006a26;
+            font-weight: bold;
+        }
+        .report-department > span 
+        {
+            font-size: .8rem;
+            color: rgba(0, 0, 0, .4);
+            font-weight: bold;
+        }
+        .report-department:hover 
+        {
+            background: #d7e3fc;
+        }
+        .filtering 
+        {
+            padding-right: 10px;
+           
+        }
+        .filtering > a 
+        {
+            font-weight: bold;
+            color: #000;
+            transition: .5s;
+        }
+        .filtering > span 
+        {
+            font-size: 15px;
+        }
+        .filtering > a:hover
+        {
+           background-color:rgba(0, 0, 0, .1);
+           padding: 0 3px;
+           border-radius: 2px;
+        }
+        .year
+        {   
+            margin: 0 20px;
+        }
+        .year span 
+        {
+            font-weight: bold;
+        }
+        .year select 
+        {
+            width: 60px;
+            background-color: transparent;
+            border: 2px solid rgba(0, 0, 0, .1);
+            border-radius: 5px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        /* ACTIVES */
+        .show.filtering
+        {
+            display: block;
+        }
+        .user-activity 
+        {
+            transform: translateX(-15px);
+            color: rgba(0, 0, 0, .1);
+        }
+        .faculty-indicator 
+        {
+        display: flex;
+        height: 30px;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0,0,.5);
+        color: #fafafa;
+        margin-top: 10px;
+        transition: .5s ease;
+        padding: 0 5px;
+        position: relative;
+        }
+        .faculty-indicator .fa 
+        {
+        margin-right: 5px;
+        }
+        .faculty-indicator .fa::after
+        {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 30px;
+        background-color:#cfd2cd;
+        top: 0;
+        left: 27px;
+                    
+        }
+        .faculty-indicator span 
+        {
+        font-size: .8rem;
+        padding: 0 8px;
+        }
+        .faculty-indicator:hover
+        {
+        background-color: #212529;
+        }
+        .custom a
+        {
+            transition: .5s;
+        }
+        .custom a:hover 
+        {
+           background-color:rgba(0, 0, 0, .1);
+           padding: 0 4px;
+           border-radius: 2px;
+        }
+        .clicked
+        {
+            background: #d7e3fc;
+        }
+       
+    </style>
+<body>
+
+        <!----------------------HOME----------------------------->       
+        <div class="wrapper">
+        <!----------------------NAVIGATION----------------------------->       
+        <div class="navigation">
+        <!-- LEFT - NAV - LINKS -->
+        <div class="side-nav">
+        <!-- PROJECT - NAME -->
+        <div class="title-name"><h1 class="project-name header-title">PHINMA Scholar <br>E-Tracker</h1><span class="position">superadmin</span></div>
+        <!-- UL LI -->
+        <div class="link">
+        <ul class="links">
+        <li>
+            <a href="dashboard.html" class="dashboard" ><i class="fa fa-bar-chart" aria-hidden="true"></i><span>Dashboard</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true" id="icon"></i>
+        </li>
+        <li class="active">
+            <a href="addStudent.html" class="student dashboard"><i class="fa fa-user" aria-hidden="true"></i><span>Student</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true" ></i>
+        </li>
+        <li>
+            <a href="faculty.html" class="faculty dashboard"><i class="fa fa-address-book" aria-hidden="true"></i><span>Faculty</span></a></i>
+            
+        <!-- INDICATOR -->
+        <div class="faculty-indicator" id="faculty_indicator">
+        <i class="fa fa-bell" style="color: #fafafa;"></i>
+        <span id="void_count">3</span>
+        </div>
+        <!-- INDICATOR -->
+
+        <i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li>
+            <a href="setSchedule.html" class="setting dashboard"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Set Schedule</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li>
+            <a href="dtr.html" class="dtr dashboard" ><i class="fa fa-calendar-times-o" aria-hidden="true"></i><span>DTR</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li>
+            <a href="renew.html" class="renewal dashboard" ><i class="fa fa-check-square-o" aria-hidden="true"></i><span>Renewal</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li>
+            <a href="Announcement.php" class="announcement dashboard" ><i class="fa fa-envelope-open" aria-hidden="true"></i><span>Announcement</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+        <li>
+            <a href="setting.html" class="announcement dashboard" ><i class="fa fa-cog" aria-hidden="true"></i><span>Settings</span></a><i class="fa fa-angle-right right-icon" aria-hidden="true"></i>
+        </li>
+
+        </div>
+        </ul>
+                
+        <!-- FOOTER LEFT -->
+        <div class="left-footer">
+            <img class="phinma" src="img/phinma.svg" alt="">
+        <div class="socials">
+            <a href="https://www.facebook.com/phinmaupang"><img src="img/fb.svg" alt=""></a><a href="https://www.instagram.com/phinmaupangs" ><img src="img/ig.svg" alt=""></a><a href="http://www.up.phinma.edu.ph/" ><img src="img/mail.svg" alt=""></a> 
+        </div>
+        <span>(075) 522 5635</span>
+        </div>
+        <!-- SIDE NAV END -->
+        </div>
+        <!-- NAV CONTAINER END -->
+        </div>
+
+        <!----------------------TOP MENU----------------------------->       
+        <div class="add-home home">
+
+        <div class="row indent upper-nav"> 
+        <div class="col-1">
+        <!----------------------DISPLAY SEMESTER----------------------------->       
+        <span class="school-year header-title" id="school_year">1st Semester | 2019-2020 </span>
+        </div>
+         <!-- LOGO DISPLAY  -->
+        <div class="col-2">
+            <center><img src="img/main.png" alt="" width="45" class="logo" style="transform: translateY(-16px);" ></center>
+        </div>
+
+         <!----------------------TOTAL NOTIFICATION NUMBER----------------------------->       
+         <!-- NOTIFICATION DISPLAY  -->
+
+         <!-- USER ACTIVITY -->
+        <div class="col-3">
+        <a href="userlogs.html" class="user-activity">
+            <i class="fa fa-cogs"></i>
+        </a> 
+        <div class="notif">
+
+        <div class="badge" id="notif_bell"><span class="total-notif"  id="notif_count"></span></div>
+        <a href="applicant.html" ><i class="fa fa-bell" aria-hidden="true"></i></a>
+        </div>
+           
+        <div class="user-cred ">
+        <!----------------------DISPLAY PHOTO----------------------------->
+        <img src="img/default_user_image.png" id="profileImage" alt="" width="40" height="40" class="user-photo">
+
+        <!----------------------USER NAME TOP----------------------------->   
+        <span class="user-name" id="user_name"></span>
+
+        <!----------------------PROFILE DROPDOWN----------------------------->
+        <div class="dropdown">
+
+        <i class="fa fa-sort-desc user-dropdown" aria-hidden="true"></i>
+        <div class="dropdown-content">
+        <a href="profile.html">Profile</a><a href="#" onclick="logout_action()">Logout</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+   
+        <div class="search">
+         <!----------------------SEARCH----------------------------->
+
+        <input type="text" placeholder="Enter Student . . ." class="search-bar"  id="search_student_field" oninput="searchStudentOnInput()">
+        <button class="search-btn" onclick="searchStudentAction()"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+
+        <!-- HEADER TITLE -->
+        <!-- <div class="add indent">
+
+        <div class="students ">
+        <span class="add-label label">Scholarship Grantees</span>
+        </div> -->
+
+        <!-- NEW -->
+        <div class="reports">
+            <!-- dept -->
+            <div class="report-department sample" id="casFilter">
+                <h3>CAS</h1>
+                <span>Scholars : </span> <span class="cite-total" id="cas_total">300</span>
+            </div>
+            <!-- dept -->
+            <div class="report-department" id="ceaFilter">
+                <h3>CEA</h1>
+                <span>Scholars : </span> <span class="cite-total" id="cea_total">300</span>
+            </div>
+            <!-- dept -->
+            <div class="report-department" id="citeFilter">
+                <h3>CITE</h1>
+                <span>Scholars : </span> <span class="cite-total" id="cite_total">300</span>
+            </div>
+            <!-- dept -->
+            <div class="report-department" id="chsFilter">
+                <h3>CHS</h1>
+                <span>Scholars : </span> <span class="cite-total" id="chs_total">300</span>
+            </div>
+            <!-- dept -->
+            <div class="report-department" id="cssFilter">
+                <h3>CSS</h1>
+                <span>Scholars : </span> <span class="cite-total" id="css_total">300</span>
+            </div>
+            <!-- dept -->
+            <div class="report-department" id="cmaFilter">
+                <h3>CMA</h1>
+                <span>Scholars : </span> <span class="cite-total" id="cma_total">300</span>
+            </div>
+            <!-- dept -->
+            <div class="report-department" id="cooFilter">
+                <h3>COO</h1>
+                <span>Scholars : </span> <span class="cite-total" id="coo_total">300</span>
+            </div>
+        </div>
+
+
+        
+        
+            
+        <!----------------------SORTING----------------------------->
+        <!-- <div class="filters indent">
+        <div class="import"> -->
+        <!-- IMPORT BUTTON -->
+        <!-- <button class="import-btn">Import <i class="fa fa-upload"></i></button> -->
+        <!-- IMPORT FILE -->
+        <!-- <input type="file" class="import-file" hidden > -->
+        <!-- </div> -->
+       
+        <!-- SORT BY DEPARTMENT -->   
+        <!-- <select name=“department“ id="department_table_option" onchange="departmentStudentOnChange()" class=“dept”>
+        <option value="dept">Department</option>
+        <option value="REGISTRAR">REGISTRAR</option>
+        <option value="CSDL">CSDL</option>
+        <option value="FINANCE">FINANCE</option>
+        <option value="MARKETING">MARKETING</option>
+        <option value="ITS">ITS</option>
+        <option value="GSD">GSD</option>
+        <option value="BASIC ED">BASIC ED</option>
+        <option value="CITE">CITE</option>
+        <option value="CEA">CEA</option>
+        <option value="CSS">CSS</option>
+        <option value="CMA">CMA</option>
+        <option value="CAS">CAS</option>
+        <option value="COO">COO</option>
+        <option value="CHS">CHS</option>
+        </select> -->
+        <!-- END SORT -->
+
+        <!-- NEW  -->
+
+      
+        <!-- </div>
+        </div> -->
+
+        <div class="header-details" style="display: flex;width: 100%;margin-bottom: 30px;margin-top: 1px;color: rgba(0, 0,0,.5);">  
+        <div class="custom" style="margin-right: 10px;">
+        <label for="" style="margin-left: 30px;color: rgba(0, 0,0,.5);">Result : </label>
+        <span id="result">&nbsp; 0</span>
+        </div>
+        <!-- ALL -->
+        <div class="custom" style="margin-right: 10px;">
+        <a href="#" onclick="allFilter()" style="margin-left: 10px;color: rgb(0, 0, 0);margin-right: 5px;">All </a> :
+        <span id="result_all">&nbsp; 1000</span>
+        </div>
+        <!-- AGE -->
+        <div class="active-inc filtering">
+        <a href="#" onclick="activeFilter()" style="margin-left: 10px;color: rgba(0, 0,0,.8);margin-right: 5px;">Active</a> :
+        <span id="result_active">&nbsp; 1000</span>
+        <a href="#" onclick="inactiveFilter()" style="margin-left: 10px;color: rgba(0, 0,0,.8);margin-right: 5px;">Inactive</a> :
+        <span id="result_inactive">&nbsp; 1000</span>
+        </div>
+        <!-- GENDER -->
+        <div class="gender filtering">
+        <a href="#" onclick="maleFilter()" style="margin-left: 10px;color: rgba(0, 0,0,.8);margin-right: 5px;">Male</a> :
+        <span id="result_male">&nbsp; 0</span>
+        <a href="#" onclick="femaleFilter()" style="margin-left: 10px;color: rgba(0, 0,0,.8);margin-right: 5px;">Female</a>  :
+        <span id="result_female">&nbsp; 0</span>
+        </div>
+
+        <div class="year">
+        <span  style="color: rgba(0, 0,0,.8);">Filter By : Year</span>
+        <select name="" id="year_file_selection" onchange="year_selection_onchange()">
+        <option value="1st Year">1st Year</option>
+        <option value="2nd Year">2nd Year</option>
+        <option value="3rd Year">3rd Year</option>
+        <option value="4th Year">4th Year</option>
+        <option value="5th Year">5th Year</option>
+        </select>
+        </div>
+        </div>
+        
+        <!----------------------TABLE----------------------------->
+        <div class="list">
+        <table id="studentTable" border="1">
+        <tr class="header">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Course</th>
+        <th style="width: 40px;">
+        Year
+        </th>
+        <th style="width: 100px;">Actions</th>
+        </tr>
+
+        
+       
+
+<!-- 
+         <tr id="1">
+            <td class="row-data">Ivan Dasigan</td>
+            <td class="row-data">03-2021-8292</td>
+            <td class="row-data">BSIT</td>
+            <td class="row-data">1</td>
+            <td class="row-data"></td>
+            <td class="row-data"></td>
+            <td class="row-data"></td>
+            <td class="row-data"></td>
+            <td><button class="view" onclick="view()"> view</button>
+            <Button class="edit"onclick="show()">edit</Button>
+            </td>
+        </tr>
+   -->
+        
+        </table>
+        </div> 
+        <!-- <a href="view-student.html" target="_BLANK"><button class="view"> view</button></a> -->
+ 
+        <!-- END HOME -->
+        </div>
+        </div>
+        <!-- END WRAPPER -->  
+        </div>
+
+        <!----------------------EDIT STUDENTS----------------------------->
+        
+        <!--  MODAL TO EDIT STUDENTS -->
+        <div class="modal-edit" id="modal_edit">
+        <div class="edit-student-inputs">
+        <button class="close-btn" onclick="close_button()"><i class="fa fa-close"></i></button>
+        <h1>Edit Student</h1>
+        <div class="edit-old-inputid">
+            <label class="id" for="id">ID</label>
+        <!--  EDIT STUDENT ID -->        
+            <input class="edit-id-input" type="text" placeholder="Student ID" id="modal_edit_studentid" style="width:100%;padding: 5px 10px ;border-radius: 5px;border: 1px solid rgba(0, 0, 0, .2);padding: 5px;">
+            </div>
+
+        <div class="col-1-input input">
+            <div class="edit-old-input">
+            <label class="edit-first-name" for="first" >Last Name</label>
+        <!--  EDIT FIRST NAME -->
+            <input class="first-name-input" type="text" placeholder="Last name" id="modal_edit_lastname" style="border-radius: 5px;">
+            </div>
+            
+            <div class="edit-old-input">
+            <label class="edit-last-name" for="last">First Name</label>
+        <!--  EDIT LAST NAME -->
+            <input class="edit-last-name-input" type="text" placeholder="First name" id="modal_edit_firstname" style="border-radius: 5px;">
+            </div>
+
+            <div class="edit-old-input">
+            <label class="mi" for="mi">Middle Name</label>
+        <!--  EDIT MIDDLE NAME -->
+            <input class="edit-mi-input" type="text" placeholder="Middle name" id="modal_edit_middlename" style="border-radius: 5px;">
+            </div>
+        </div>
+
+
+        <div class="col-2-input input">
+           
+
+            <div class="edit-old-input">
+                <label class="department-label" for="department">Department</label>
+        <!--  EDIT COURSE -->              
+                <select name="edit-department" id="modal_edit_department_option">
+                    <option value="REGISTRAR">REGISTRAR</option>
+                    <option value="CSDL">CSDL</option>
+                    <option value="FINANCE">FINANCE</option>
+                    <option value="MARKETING">MARKETING</option>
+                    <option value="ITS">ITS</option>
+                    <option value="GSD">GSD</option>
+                    <option value="BASIC ED">BASIC ED</option>
+                    <option value="CITE">CITE</option>
+                    <option value="CEA">CEA</option>
+                    <option value="CSS">CSS</option>
+                    <option value="CMA">CMA</option>
+                    <option value="CAS">CAS</option>
+                    <option value="COO">COO</option>
+                    <option value="CHS">CHS</option>
+                </select>
+            </div>
+
+            <div class="edit-old-input">
+            <label class="year-label" for="year">Year</label>
+            <!--  EDIT SCHOOL YEAR -->       
+                <select name="edit-school-year" id="modal_edit_schoolyear_option">
+                    <option value="1st Year">1st Year</option>
+                    <option value="2nd Year">2nd Year</option>
+                    <option value="3rd Year">3rd Year</option>
+                    <option value="4th Year">4th Year</option>
+                    <option value="5th Year">5th Year</option>
+                </select>
+            </div>
+            <div class="edit-old-input">
+                <label class="faculty-label" for="faculty">Faculty</label>
+                <!--  EDIT FACULTY -->       
+                <select name="edit-faculty-incharge" id="modal_edit_faculty_option">
+    
+                </select>
+                </div>
+
+            </div>
+
+        <div class="col-3-input input ">
+        <div class="edit-old-input">
+            <label class="sy-label" for="sy">Scholarship</label>
+            <!--  EDIT SCHOLARSHIP-->       
+            <select name="edit-schedule" id="modal_edit_scholarship_option" onchange="scholarshipOnChange()">
+            <option value="Handog Kaibigan Program">Handog Kaibigan Program</option>
+            <option value="Student Assistant Program">Student Assistant Program</option>
+            </select>
+        </div>
+
+        <div class="edit-old-input">
+            <label class="department-label" for="department">Scheduled Date</label>
+            <!--  EDIT DEPARTMENT -->       
+            <select name="edit-department" id="modal_edit_scheduleday_option">
+            <!-- MONDAY -->
+            <option value="Mon">Mon</option>
+            <option value="Mon-Tue">Mon-Tue</option>
+            <option value="Mon-Wed">Mon-Wed</option>
+            <option value="Mon-Thu">Mon-Thu</option>
+            <option value="Mon-Fri">Mon-Fri</option>
+            <!-- TUESDAY -->
+            <option value="Tue">Tue</option>
+            <option value="Tue-Wed">Tue-Wed</option>
+            <option value="Tue-Thu">Tue-Thu</option>
+            <option value="Tue-Fri">Tue-Fri</option>
+            <!-- WEDNESDAY -->
+            <option value="Wed">Wed</option>
+            <option value="Wed-Thu">Wed-Thu</option>
+            <option value="Wed-Fri">Wed-Fri</option>
+            <!-- THURSDAY -->
+            <option value="Thu">Thu</option>
+            <option value="Thu-Tue">Thu-Tue</option>
+            <option value="Thu-Fri">Thu-Fri</option>
+            <!-- FRIDAY -->
+            <option value="Fri">Fri</option>
+            <option value="Sat">Sat</option>
+            </select>
+        </div>
+
+        <div class="edit-old-input">
+            <label class="schedule-label" for="schedule">Scheduled Time</label>
+            <!--  EDIT SCHEDULE -->       
+                <select name="edit-schedule" id="modal_edit_scheduletime_option">
+                <option value="7:30-9:00">7:30-9:00</option>
+                <option value="9:00-10:30">9:00-10:30</option>
+                <option value="10:30-12:00">10:30-12:00</option>
+                <option value="12:00-1:30">12:00-1:30</option>
+                <option value="1:30-3:00">1:30-3:00</option>
+                <option value="3:00-4:30">3:00-4:30</option>
+                </select>
+  
+        </div>
+        </div>
+
+        <div class="col-3-input input ">
+       
+
+        </div>
+        <!--  SAVE BUTTON -->       
+        <button class="edit-save" onclick="savechangesAction()">Save Changes</button>
+        </div>
+        </div>
+        
+        <!-- JS BACKEND -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
+        <script>
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            var firebaseConfig = {
+                apiKey: "AIzaSyCznGmM6_l9vuddjONG8c-Z4du3-LXlQNw",
+                authDomain: "e-tracker-51b2a.firebaseapp.com",
+                projectId: "e-tracker-51b2a",
+                storageBucket: "e-tracker-51b2a.appspot.com",
+                messagingSenderId: "180907238573",
+                appId: "1:180907238573:web:c5745adb36aaea4299d224",
+                measurementId: "G-Z0YPB2DTZN"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            //firebase.analytics();
+
+            </script>
+        <script type="text/javascript" src="js/add_backend.js"></script>
+        
+        <script>
+
+        const deptBtn = document.querySelectorAll(".report-department")
+        const parentDept = document.querySelector(".reports")
+
+        deptBtn.forEach(btn => {
+           
+            btn.onclick = e => {
+            
+                parentDept.querySelector(".sample").classList.remove("sample","clicked")
+                btn.classList.add("sample","clicked")
+
+            }
+            
+        })
+
+        </script>
+
+</body>
+</html>

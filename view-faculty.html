@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Tracker | View Faculty</title>
+    <link rel="stylesheet" href="css/view-faculty.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/add.js" defer></script>
+
+</head>
+<body>
+        <!----------------------HOME----------------------------->
+        <div class="wrapper">
+        <!----------------------NAVIGATION----------------------------->       
+        <div class="navigation">
+       
+        <!-- NAV CONTAINER END -->
+        </div>
+    
+        <!----------------------TOP MENU----------------------------->       
+        <div class="add-home home">
+        <div class="row indent upper-nav">
+        <div class="col-1">
+        <!----------------------DISPLAY SEMESTER----------------------------->   
+            <span class="school-year header-title" id="school_year">1st Semester | 2019-2020 </span>
+        </div>
+         <!-- LOGO DISPLAY  -->
+         <div class="col-2">
+        <center><img src="img/main.png" alt="" width="45" class="logo" style="transform: translateY(-16px);" ></center>
+        </div>
+
+        <!----------------------TOTAL NOTIFICATION NUMBER----------------------------->  
+        <div class="col-3">
+        <div class="col-3">
+        <div class="notif">
+        <div class="badge" id="notif_bell"><span class="total-notif" id="notif_count"></span></div>
+        <a href="applicant.html" ><i class="fa fa-bell" aria-hidden="true"></i></a>
+        </div>
+
+        <div class="user-cred ">
+        <!----------------------DISPLAY PHOTO----------------------------->
+        <img src="img/default_user_image.png" id="profileImage" alt="" width="40" height="40" class="user-photo">
+        <!----------------------USER NAME TOP-----------------------------> 
+        <span class="user-name" id="user_name"></span>
+        <!----------------------PROFILE DROPDOWN----------------------------->
+        <div class="dropdown">
+        <i class="fa fa-sort-desc user-dropdown" aria-hidden="true"></i>
+        <div class="dropdown-content">
+        <a href="profile.html">Profile</a><a href="#" onclick="logout_action()">Logout</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- END UPPER MENU -->
+    
+        <div class="title"> <a href="faculty.html" ><i class="fa fa-arrow-left"></i>  &nbsp</a> <strong>About Faculty</strong></div>
+
+        <div class="view-container">
+        <!-- -->
+        <div class="scroll">
+        <div class="view-info border personal">
+        <div class="info info-1">
+        <center>
+        <!----------------------FACULTY PHOTO----------------------------->   
+        <img src="img/default_user_image.png" id="profileImage1" alt="" width="100" height="100" class="photo" style="margin-bottom: 10px">
+
+        <!----------------------FACULTY NAME----------------------------->   
+        <span class="name" id="faculty_name">Loading..</span></center>
+        </div>
+        <br>
+        <div class="info margin height">
+        <!----------------------FACULTY ID----------------------------->   
+        <span class="label">ID : </span><span class="id" id="faculty_id"></span>
+        </div>
+        <div class="info margin height">
+        <!----------------------FACULTY EMAIL----------------------------->   
+        <span class="label">Email : </span><span class="email" id="faculty_email"></span>
+        </div>
+        <div class="info margin height">
+        <!----------------------FACULTY NUMBER----------------------------->   
+        <span class="label">Phone Number : </span><span class="phone-number" id="faculty_number"></span>
+        </div>
+        <div class="info margin height">
+        <!----------------------FACULTY DEPARTMENT----------------------------->   
+        <span class="label">Department : </span><span class="dept" id="faculty_department"></span>
+        </div>
+        <div class="info margin height">
+        <!----------------------FACULTY POSITION----------------------------->   
+        <span class="label">Position : </span><span class="position">Admin</span>
+        </div>
+        </div>
+
+
+        <div class="view-info  no-border">
+        <div class="info about">
+        <span class="about-scholars" style="font-size: 24px;">About Handle Scholars</span>
+        </div>
+        <div class="info height margin">
+        <!----------------------FACULTY STATUS----------------------------->   
+        <!-- <span class="label">Status : </span><span class="active" id="faculty_active">Active</span> -->
+        </div>
+        <div class="info height margin">
+        <!----------------------SEMESTER----------------------------->   
+        <span class="label">Sem : </span><span class="sem" id="faculty_sem">1</span>
+        </div>
+        <div class="info height margin">
+        <!----------------------SCHOOL YEAR----------------------------->   
+        <span class="label">School Year : </span><span class="s-y" id="faculty_sy"></span>
+        </div>
+        <div class="info height margin">
+            <!----------------------SCHOOL YEAR----------------------------->   
+            <span class="label">Subject Code : </span><span class="s-code" id="s-code_sy"></span>
+            </div>
+        <div class="info height margin">
+        <!----------------------TOTAL HANDLED STUDENT----------------------------->   
+        <span class="label">Handle Students : </span><span class="handle"><strong id="handle"></strong></span>
+        
+        <div class="handle-container">
+        <div class="handled-faculty" id="handle_student_list">
+        <!-- SAMPLE DATA ONLY -->
+        <!-- <div class="handled-students">
+        <br> -->
+        <!----------------------HANDLED STUDENTS NAME----------------------------->   
+        <!-- <span class="students-name subject">Katherine Decena</span> -->
+        <!----------------------HANDLED STUDENTS SCHEDULE----------------------------->   
+        <!-- <span class="students-schedule">Monday-Friday 7:30 - 9:30</span> -->
+        <!-- </div> -->
+        <!--END-->
+     
+            <!--END-->
+        </div>
+        </div>
+        </div>
+            
+        </div>
+        </div>
+        </div>
+        <!-- END HOME -->
+        </div>
+        <!-- END WRAPPER -->  
+        </div>
+        <!-- JS BACKEND -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
+        <script>
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            var firebaseConfig = {
+                apiKey: "AIzaSyCznGmM6_l9vuddjONG8c-Z4du3-LXlQNw",
+                authDomain: "e-tracker-51b2a.firebaseapp.com",
+                projectId: "e-tracker-51b2a",
+                storageBucket: "e-tracker-51b2a.appspot.com",
+                messagingSenderId: "180907238573",
+                appId: "1:180907238573:web:c5745adb36aaea4299d224",
+                measurementId: "G-Z0YPB2DTZN"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            //firebase.analytics();
+
+            </script> 
+        <script src="js/view_faculty_backend.js"></script>
+</body>
+</html>
