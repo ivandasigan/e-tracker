@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap");
+
+$colorMain1: #006a26;
+$colorMain2: #e1ae2d;
+$rightNav: rgba(164, 175, 193, 0.05);
+$tableHeader: rgba(0, 106, 38, 0.12);
+$tableEven: rgba(250, 250, 250, 1);
+$tableText: rgba(2, 62, 138, 1);
+$textColor: #333;
+$textOpacity: rgba(0, 0, 0, 0.3);
+$buttonSave: 19px;
+$inputText: 17px;
+$liIcon: 18px;
+$badge: 14px;
+
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Nunito", sans-serif;
+}
+.wrapper 
+{
+    padding: 50px 100px;
+    position: relative;
+}
+button
+{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+button:hover
+{
+    i   
+    {
+        color: $colorMain1;
+    }
+   
+ 
+}
+button .fa
+{
+   color: rgba(0, 0, 0, 0.3);
+}
+.logo 
+{
+    background-color: $colorMain1;
+    width: 100px;
+    padding: 30px 20px;
+    color: #fafafa;
+    object-fit: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 2px;
+    position: absolute;
+    top: 0;
+    right: 100px;
+}
+.logo:nth-child(3)
+{
+    font-size: .5rem    ;
+}
+.title 
+{
+    padding-bottom: 50px;
+}
+.title span
+{
+    font-size: .7rem;
+    color: #adb5bd;
+}
+.short-desc 
+{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+.lists 
+{
+    width: 100%;
+}
+.lists table 
+{
+    width: 100%;
+    border-collapse: collapse;
+}
+th {
+    text-align: left;
+    padding: 8px;
+  }
+  td{
+    text-align: left;
+    padding: 8px;
+    font-size: 14px;
+    color: #6c757d;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #f8f9fa;
+  }
+
+  .signature-name
+  {
+      width: 100%;
+      float: right;
+      margin-top: 20px;
+      margin-bottom: 40px;
+      line-height: 22px;
+  }
+  .signature-name p:nth-child(1)
+  {
+      font-weight: bolder;
+  }
+  .signature-name p:nth-child(2),.signature-name p:nth-child(3)
+  {
+      font-size: 14px;
+  }
+
+  .footer
+  {
+      line-height: 22px;
+  }
+
+  .footer p:nth-child(1)
+  {
+    font-weight: bolder;
+  }
+  .footer p:nth-child(2),.footer p:nth-child(3),.footer p:nth-child(4),.footer p:nth-child(5),.footer p:nth-child(6)
+  {
+    font-size: 14px;
+  }
+

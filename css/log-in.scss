@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap");
+* {
+  font-family: "Nunito", sans-serif;
+}
+.fa {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  margin-right: 2px;
+}
+a {
+  font-size: 15px;
+}
+button {
+  padding: 12px 15px;
+}
+input[type="text"],
+input[type="password"] {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  // padding: 0 30px 20px 50px;
+  height: 45px;
+  line-height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.email.active {
+  border: 2px solid #006a26;
+}
+.error-message {
+  width: 90%;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+.error {
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+.error-message.active {
+  color: #721c24;
+  background: #f8d7da;
+  font-size: 18px;
+}
+
+.form-group-1 {
+  position: relative;
+}
+#emailfield.valid {
+  border: 2px solid #006a26;
+  transition: 0.5s ease;
+}
+.password.valid {
+  border: 2px solid #006a26;
+  transition: 0.5s ease;
+}
+.user-icon {
+  // background-color: rgba(0, 0, 0, 0.1);
+  width: 45px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  border-radius: 2px;
+  text-align: center;
+  line-height: 50px;
+  border-right: 2px solid rgba(0, 0, 0, 0.1);
+}
+.u-i.active {
+  border-color: #c0392b;
+}
+.u-i-1.active {
+  border-color: #c0392b;
+}
+button {
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: 0.5s ease;
+}
+.show-hide {
+  width: 45px;
+  height: 100%;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  // display: none;
+}
+.show-hide button {
+  border: none;
+  background: transparent;
+}
+
+.inactive {
+  border: 2px solid #c0392b;
+}
+@media only screen and (max-width: 900px) {
+  .footer {
+    bottom: -10px;
+  }
+}
